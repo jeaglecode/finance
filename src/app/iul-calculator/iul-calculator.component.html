@@ -1,0 +1,27 @@
+<form>
+  <div class="form-group">
+    <label for="initialIULPremium">Initial 401k Balance ($):</label>
+    <input type="number" class="form-control" id="initialIULPremium" name="initialIULPremium" [(ngModel)]="initialIULPremium" step="0.01">
+  </div>
+  <div class="form-group">
+    <label for="annualIULContribution">Annual Contribution ($):</label>
+    <input type="number" class="form-control" id="annualIULContribution" name="annualIULContribution" [(ngModel)]="annualIULContribution" step="0.01">
+  </div>
+  <div class="form-group">
+    <label for="iulInterestRate">Annual Return (%):</label>
+    <input type="number" class="form-control" id="iulInterestRate" name="iulInterestRate" [(ngModel)]="iulInterestRate" step="0.01">
+  </div>
+  <div class="form-group">
+    <label for="iulYears">Years:</label>
+    <input type="number" class="form-control" id="iulYears" name="iulYears" [(ngModel)]="iulYears">
+  </div>
+  <div class="form-group">
+    <label for="iulFees">Fees Included:</label>
+    <input type="number" class="form-control" id="iulFees" name="iulFees"  [(ngModel)]="iulFees" step="0.01">
+  </div>
+  <button type="button" class="btn btn-primary mt-2" (click)="calculateIUL()">Calculate</button>
+</form>
+<div class="back">
+  <h3 class="purple">Final Balance: ${{ finalIULCashValue | number: '1.0-0' }}</h3>
+  <h3 class="purple">Total Contributions: ${{ totalIULContributions | number: '1.0-0' }}</h3>
+</div>

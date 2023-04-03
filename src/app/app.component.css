@@ -1,0 +1,5 @@
+.purple {
+  backdrop-filter: blur(30px);
+  color: skyblue;
+  font-weight: bold;
+}
