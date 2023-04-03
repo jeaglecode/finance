@@ -1,0 +1,27 @@
+<form>
+  <div class="form-group">
+    <label for="initial401kBalance">Initial 401k Balance ($):</label>
+    <input type="number" class="form-control" id="initial401kBalance" name="initial401kBalance" [(ngModel)]="initial401kBalance" step="0.01">
+  </div>
+  <div class="form-group">
+    <label for="annualContribution">Annual Contribution ($):</label>
+    <input type="number" class="form-control" id="annualContribution" name="annualContribution" [(ngModel)]="annualContribution" step="0.01">
+  </div>
+  <div class="form-group">
+    <label for="annualReturn">Annual Return (%):</label>
+    <input type="number" class="form-control" id="annualReturn" name="annualReturn" [(ngModel)]="annualReturn" step="0.01">
+  </div>
+  <div class="form-group">
+    <label for="years">Years:</label>
+    <input type="number" class="form-control" id="years" name="years" [(ngModel)]="years">
+  </div>
+  <div class="form-group">
+    <label for="fees">Fees as a Percentage (%):</label>
+    <input type="number" class="form-control" id="fees" name="fees" [(ngModel)]="fees" step="0.01">
+  </div>
+  <button type="button" class="btn btn-primary mt-2" (click)="calculate401k()">Calculate</button>
+</form>
+<div class="back">
+  <h3 class="purple">Final Balance: ${{ final401kBalance | number: '1.0-0' }}</h3>
+  <h3 class="purple">Total Contributions: ${{ total401kContributions | number: '1.0-0' }}</h3>
+</div>
