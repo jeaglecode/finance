@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./k401-calculator.component.css']
 })
 export class K401CalculatorComponent {
-  initial401kBalance = 0;
+  initial401kBalance=  0;
   annualContribution = 8000;
   annualReturn = 7;
   years = 12;
