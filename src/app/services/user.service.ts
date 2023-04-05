@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://localhost:3000/users';
+  private url = 'https://financeserver.onrender.com/users';
 
   constructor(private http: HttpClient) { }
 
