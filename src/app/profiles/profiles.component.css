@@ -1,0 +1,21 @@
+form {
+  margin-top: 10px;
+  /*backdrop-filter: blur(25px);*/
+  padding: 30px;
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.8);
+  font-size: .9em;
+}
+.btn {
+  width:15%;
+}
+
+.message {
+
+  background-color: red;
+  padding: 5px;
+
+  float: right;
+  border-radius: 10px;
+
+}
