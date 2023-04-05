@@ -8,11 +8,13 @@ import { FeesComponent } from "./fees/fees.component";
 import { CustomRouteReuseStrategy } from "./shared/custom-reuse-strategy";
 
 const routes: Routes = [
+  { path: '', redirectTo: 'account-value', pathMatch: 'full' },
   { path: 'profiles', component:  ProfilesComponent},
   { path: 'account-value', component: K401CalculatorComponent},
   { path: 'retirement-income', component: RetirementincomeComponent},
   { path: 'taxes', component: TaxesComponent },
-  { path: 'fees', component: FeesComponent }
+  { path: 'fees', component: FeesComponent },
+  { path: '**', redirectTo: 'account-value' },
 ];
 
 @NgModule({

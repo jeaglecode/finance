@@ -1,20 +1,25 @@
+
+
+
 <div class="container">
-  <h1 class="text-center m-4 pb-4">Profile</h1>
+  <h1 class="text-center m-1 pb-4">Profile</h1>
+
 
   <div class="row">
     <div class="col-md-6">
       <h2 class="">Universal Inputs</h2>
+
       <form>
         <div class="form-row row">
           <div class="col-6">
             <div class="form-group">
               <label for="profileName">Name:</label>
-              <input type="text" class="form-control" id="profileName" name="profileName">
+              <input type="text" class="form-control" id="profileName" name="profileName" [(ngModel)]="fetchedUsers.profileName">
             </div>
           </div>
           <div class="col-6">
             <label for="currentAge">Current Age:</label>
-            <input type="number" class="form-control" id="currentAge" name="currentAge" step="1">
+            <input type="number" class="form-control" id="currentAge" name="currentAge" step="1" (change)="yearsBetweenAges()" [(ngModel)]="fetchedUsers.currentAge">
           </div>
         </div>
 
@@ -22,21 +27,23 @@
         <div class="form-row row">
           <div class="col-6">
             <label for="retirementAge">Age at Retirement:</label>
-            <input type="number" class="form-control" id="retirementAge" name="retirementAge" step="1">
+            <input type="number" class="form-control" id="retirementAge" name="retirementAge" step="1" (change)="yearsBetweenAges()" [(ngModel)]="fetchedUsers.retirementAge">
           </div>
           <div class="col-6">
             <label for="cellPhone">Cell Phone:</label>
-            <input type="tel" class="form-control" id="cellPhone" name="cellPhone">
+            <input type="tel" class="form-control" id="cellPhone" name="cellPhone" [(ngModel)]="fetchedUsers.cellPhone">
           </div>
         </div>
+
         <div class="form-row row">
           <div class="col-6">
 
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email">
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="fetchedUsers.email">
           </div>
-        </div>
 
+
+        </div>
 
       </form>
     </div>
@@ -46,101 +53,110 @@
       <form>
         <div class="form-row row">
 
-          <div class="col-5">
+          <div class="col-4">
             <div class="form-group">
               <label for="annualPremium">Annual Premium:</label>
-              <input type="number" class="form-control" id="annualPremium" name="annualPremium" step=".01">
+              <input type="number" class="form-control" id="annualPremium" name="annualPremium" step=".01" [(ngModel)]="fetchedUsers.annualPremium">
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-4">
             <div class="form-group">
               <label for="yearsIUL">Duration (Years):</label>
-              <input type="number" class="form-control" id="yearsIUL" name="yearsIUL" step="1">
+              <input type="number" class="form-control" id="yearsIUL" name="yearsIUL" step="1" readonly [(ngModel)]="fetchedUsers.yearsIUL">
             </div>
           </div>
 
           <div class="col-4">
             <div class="form-group">
               <label for="lumpSum">Lump sum Premium:</label>
-              <input type="number" class="form-control" id="lumpSum" name="lumpSum" step=".01">
+              <input type="number" class="form-control" id="lumpSum" name="lumpSum" step=".01" [(ngModel)]="fetchedUsers.lumpSum">
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-4">
             <div class="form-group">
               <label for="rateOfReturn">Rate of Return (%):</label>
-              <input type="number" class="form-control" id="rateOfReturn" name="rateOfReturn" step=".01">
+              <input type="number" class="form-control" id="rateOfReturn" name="rateOfReturn" step=".01" [(ngModel)]="fetchedUsers.rateOfReturn">
             </div>
           </div>
+
+
+          <div class="col-4">
+            <div class="form-group">
+            <label for="feesIUL">IUL fees:</label>
+            <input type="number" class="form-control" id="feesIUL" name="feesIUL" [(ngModel)]="fetchedUsers.feesIUL" step=".01">
+          </div>
+          </div>
+
+          <div class="col-4">
+            <div class="form-group">
+              <label for="feesIULPercent">IUL (%):</label>
+              <input type="number" class="form-control" id="feesIULPercent" name="feesIULPercent" [(ngModel)]="fetchedUsers.feesIULPercent" step=".01">
+            </div>
+          </div>
+
+
 
           <div class="col-6">
             <div class="form-group">
               <label for="annualSpendableIncome">Annual Spendable Income:</label>
-              <input type="number" class="form-control" id="annualSpendableIncome" name="annualSpendableIncome" step=".01">
+              <input type="number" class="form-control" id="annualSpendableIncome" name="annualSpendableIncome" step=".01" [(ngModel)]="fetchedUsers.annualSpendableIncome">
             </div>
           </div>
 
-          <div class="col-5">
+          <div class="col-6">
             <div class="form-group">
               <label for="incomeDuration">Income Duration (Years):</label>
-              <input type="number" class="form-control" id="incomeDuration" name="incomeDuration" step="1">
+              <input type="number" class="form-control" id="incomeDuration" name="incomeDuration" step="1" [(ngModel)]="fetchedUsers.incomeDuration">
             </div>
           </div>
 
-          <div class="col-7">
+          <div class="col-6">
             <div class="form-group">
-              <label for="incomeTaxRateBeforeRetirement">Income Tax Rate (Before Retirement) (%):</label>
-              <input type="number" class="form-control" id="incomeTaxRateBeforeRetirement" name="incomeTaxRateBeforeRetirement" step=".01">
+              <label for="incomeTaxRateBeforeRetirement">Income Tax Rate (Pre-Retirement) (%):</label>
+              <input type="number" class="form-control" id="incomeTaxRateBeforeRetirement" name="incomeTaxRateBeforeRetirement" step=".01" [(ngModel)]="fetchedUsers.incomeTaxRateBeforeRetirement">
             </div>
           </div>
-
 
         </div>
-
       </form>
-
     </div>
-
-
   </div>
 
 
   <div class="row mt-3">
-
     <h2 class="">Typical Plan Inputs</h2>
-
     <form>
       <div class="col">
         <label for="paymentFrequencyMonthly">Payment Frequency:</label>
         <div class="mt-1">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="paymentFrequencyRadios" id="paymentFrequencyMonthly"
-                   value="option1" checked>
+                   value="monthly" [(ngModel)]="fetchedUsers.paymentFrequency">
             <label class="form-check-label" for="paymentFrequencyMonthly">Monthly</label>
           </div>
 
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="paymentFrequencyRadios" id="paymentFrequencyAnnually"
-                   value="option2">
-            <label class="form-check-label" for="paymentFrequencyAnnually">Annually</label>
+                   value="annually" [(ngModel)]="fetchedUsers.paymentFrequency">
+            <label class="form-check-label" for="paymentFrequencyAnnually" checked>Annually</label>
           </div>
         </div>
       </div>
-
 
       <div class="row mt-2">
         <div class="col-4">
           <div class="form-group">
             <label for="contribution">Contribution:</label>
-            <input type="number" class="form-control" id="contribution" name="contribution" step=".01">
+            <input type="number" class="form-control" id="contribution" name="contribution" step=".01" [(ngModel)]="fetchedUsers.contribution">
           </div>
         </div>
 
         <div class="col-2">
           <div class="form-group">
             <label for="yearsTypical">Duration (Years):</label>
-            <input type="number" class="form-control" id="yearsTypical" name="yearsTypical" step="1">
+            <input type="number" class="form-control" id="yearsTypical" name="yearsTypical" step="1" readonly [(ngModel)]="fetchedUsers.yearsTypical">
           </div>
         </div>
 
@@ -148,67 +164,65 @@
           <div class="form-group">
             <label for="currentAccountBalance">Current Account Balance:</label>
             <input type="number" class="form-control" id="currentAccountBalance" name="currentAccountBalance"
-                   step=".01">
+                   step=".01" [(ngModel)]="fetchedUsers.currentAccountBalance">
           </div>
         </div>
 
         <div class="col-3">
           <div class="form-group">
             <label for="percentFees">Percent Fees (%):</label>
-            <input type="number" class="form-control" id="percentFees" name="percentFees" step=".01">
+            <input type="number" class="form-control" id="percentFees" name="percentFees" step=".01" [(ngModel)]="fetchedUsers.percentFees">
           </div>
         </div>
 
         <div class="col-4">
           <div class="form-group">
             <label for="employerMatch">Employer Match (Annual $ Contribution):</label>
-            <input type="number" class="form-control" id="employerMatch" name="employerMatch" step=".01">
+            <input type="number" class="form-control" id="employerMatch" name="employerMatch" step=".01" [(ngModel)]="fetchedUsers.employerMatch">
           </div>
         </div>
 
         <div class="col-4">
           <div class="form-group">
             <label for="rateOfReturnDuringRetirement">Rate of Return during Retirement (%):</label>
-            <input type="number" class="form-control" id="rateOfReturnDuringRetirement" name="rateOfReturnDuringRetirement" step=".01">
+            <input type="number" class="form-control" id="rateOfReturnDuringRetirement" name="rateOfReturnDuringRetirement" step=".01" [(ngModel)]="fetchedUsers.rateOfReturnDuringRetirement">
           </div>
         </div>
 
         <div class="col-4">
           <div class="form-group">
             <label for="rateOfReturnDuringWorkingYears">Rate of Return during Working Years (%):</label>
-            <input type="number" class="form-control" id="rateOfReturnDuringWorkingYears" name="rateOfReturnDuringWorkingYears" step=".01">
+            <input type="number" class="form-control" id="rateOfReturnDuringWorkingYears" name="rateOfReturnDuringWorkingYears" step=".01" [(ngModel)]="fetchedUsers.rateOfReturnDuringWorkingYears">
           </div>
         </div>
 
         <div class="col-4">
           <div class="form-group">
             <label for="incomeTaxRateDuringRetirement">Income Tax Rate (Before Retirement) (%):</label>
-            <input type="number" class="form-control" id="incomeTaxRateDuringRetirement" name="incomeTaxRateDuringRetirement" step=".01">
+            <input type="number" class="form-control" id="incomeTaxRateDuringRetirement" name="incomeTaxRateDuringRetirement" step=".01" [(ngModel)]="fetchedUsers.incomeTaxRateDuringRetirement">
           </div>
         </div>
 
         <div class="col-4">
           <div class="form-group">
             <label for="incomeTaxRateDuringWorkingYears">Income Tax Rate (During Retirement) (%):</label>
-            <input type="number" class="form-control" id="incomeTaxRateDuringWorkingYears" name="incomeTaxRateDuringWorkingYears" step=".01">
+            <input type="number" class="form-control" id="incomeTaxRateDuringWorkingYears" name="incomeTaxRateDuringWorkingYears" step=".01" [(ngModel)]="fetchedUsers.incomeTaxRateDuringWorkingYears">
           </div>
+
         </div>
+        <div class="form-group">
+        <button type="button" class="btn btn-primary mt-2" (click)="saveProfile()"><span>Update Profile</span></button>
+          <span class="message" *ngIf="showUpdateProfileMessage">Profile Saved!</span>
 
 
       </div>
 
+
+
+      </div>
     </form>
   </div>
-
-
-</div>
-
-<div class="row mt-4">
-
-  <!-- Add more form elements as needed -->
 </div>
 
 
-<!--    <div class="col"><h2 class="purple">IUL Inputs</h2>-->
-<!--    </div>-->
 

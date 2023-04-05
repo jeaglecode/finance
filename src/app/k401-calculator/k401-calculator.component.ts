@@ -44,7 +44,7 @@ export class K401CalculatorComponent {
     incomeDuration: 'Test income duration',
     incomeTaxRateBeforeRetirement: 'Test income tax rate before retirement',
     feesIUL:  'Test fees IUL',
-    paymentFrequencyMonthly: true,
+    paymentFrequency: 'monthly',
     contribution: 'Test contribution',
     yearsTypical: 'Test years typical',
     currentAccountBalance: 'Test current account balance',

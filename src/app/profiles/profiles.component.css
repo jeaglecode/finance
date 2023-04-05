@@ -5,3 +5,16 @@ form {
   border-radius: 30px;
   background-color: rgba(0,0,0,0.8);
 }
+.btn {
+  width:15%;
+}
+
+.message {
+
+  background-color: red;
+  padding: 5px;
+
+  float: right;
+  border-radius: 10px;
+
+}
