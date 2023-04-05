@@ -1,10 +1,11 @@
 import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouteReuseStrategy, RouterModule, Routes } from '@angular/router';
 import { ProfilesComponent } from "./profiles/profiles.component";
 import { K401CalculatorComponent } from "./k401-calculator/k401-calculator.component";
 import { RetirementincomeComponent} from "./retirementincome/retirementincome.component";
 import { TaxesComponent} from "./taxes/taxes.component";
 import { FeesComponent } from "./fees/fees.component";
+import { CustomRouteReuseStrategy } from "./shared/custom-reuse-strategy";
 
 const routes: Routes = [
   { path: 'profiles', component:  ProfilesComponent},
@@ -16,6 +17,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{
+    provide: RouteReuseStrategy,
+    useClass: CustomRouteReuseStrategy,
+  }],
 })
 export class AppRoutingModule { }

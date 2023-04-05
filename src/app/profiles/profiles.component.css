@@ -1,0 +1,7 @@
+form {
+  margin-top: 10px;
+  /*backdrop-filter: blur(25px);*/
+  padding: 30px;
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.8);
+}

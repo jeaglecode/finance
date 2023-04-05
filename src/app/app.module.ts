@@ -12,6 +12,8 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { RetirementincomeComponent } from './retirementincome/retirementincome.component';
 import { TaxesComponent } from './taxes/taxes.component';
 import { FeesComponent } from './fees/fees.component';
+import { UserService } from "./services/user.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,9 +30,10 @@ import { FeesComponent } from './fees/fees.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
