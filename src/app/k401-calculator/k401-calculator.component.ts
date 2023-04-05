@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
 
 @Component({
@@ -6,7 +6,7 @@ import { UserService } from "../services/user.service";
   templateUrl: './k401-calculator.component.html',
   styleUrls: ['./k401-calculator.component.css']
 })
-export class K401CalculatorComponent {
+export class K401CalculatorComponent implements OnInit{
   initial401kBalance=  0;
   annualContribution = 8000;
   annualReturn = 7;
@@ -16,51 +16,51 @@ export class K401CalculatorComponent {
   final401kBalance = 0;
   total401kContributions = 0;
 
+  finalIULCashValue=0;
+  totalIULContributions=0;
+
+  public profileData: any = [];
+
   constructor(private userService: UserService) { }
 
+  ngOnInit() {
+    this.userService.getUsers().subscribe((users: any) => {
+      this.profileData = users;
+      this.calculate401k();
+      this.calculateIUL();
+      console.log(this.profileData);
+    });
+
+  }
+
   calculate401k() {
-    let balance = this.initial401kBalance;
-    for (let i = 0; i < this.years; i++) {
-      balance += this.annualContribution;
-      balance *= (1 + this.annualReturn/100);
-      balance *= (1 - this.fees/100);
+    let balance = this.profileData.currentAccountBalance;
+    for (let i = 0; i < this.profileData.yearsTypical; i++) {
+      balance += this.profileData.contribution;
+      balance *= (1 + this.profileData.rateOfReturnDuringWorkingYears/100);
+      balance *= (1 - this.profileData.percentFees/100);
     }
 
     this.final401kBalance = balance;
-    this.total401kContributions = this.annualContribution * this.years;
-    this.onSubmit()
+    this.total401kContributions = this.profileData.contribution * this.profileData.yearsTypical;
+    // this.onSubmit()
   }
-  user = {
-    profileName: 'Test Name Frosty',
-    currentAge: 'Test age',
-    retirementAge: 'Test retirement age',
-    cellPhone: 'Test cell phone',
-    email: 'Test email',
-    annualPremium: 'Test annual premium',
-    yearsIUL: 'Test yearsIUL',
-    lumpSum: 'Test lump sum',
-    rateOfReturn: 'Test rate of return',
-    annualSpendableIncome: 'Test annual spendable income',
-    incomeDuration: 'Test income duration',
-    incomeTaxRateBeforeRetirement: 'Test income tax rate before retirement',
-    feesIUL:  'Test fees IUL',
-    paymentFrequency: 'monthly',
-    contribution: 'Test contribution',
-    yearsTypical: 'Test years typical',
-    currentAccountBalance: 'Test current account balance',
-    percentFees: 'Test percent fees',
-    employerMatch: 'Test employer match',
-    rateOfReturnDuringRetirement: 'Test rate of return during retirement',
-    rateOfReturnDuringWorkingYears: 'Test rate of return during working years',
-    incomeTaxRateDuringRetirement: 'Test income tax rate during retirement',
-    incomeTaxRateDuringWorkingYears: 'Test income tax rate during working years',
-  };
+
+  calculateIUL() {
+    console.log('calculateIUL() called');
+    let balance = 0;
+    for (let i = 0; i < this.profileData.yearsIUL; i++) {
+      balance += this.profileData.annualPremium;
+      balance *= (1 + this.profileData.rateOfReturn / 100);
+      balance -= this.profileData.feesIUL;
+
+    }
+    console.log('balance: ', balance);
+    this.finalIULCashValue = balance;
+    this.totalIULContributions = this.profileData.annualPremium * this.profileData.yearsIUL;
+
+  }
 
 
-  onSubmit() {
-    this.userService.addUser(this.user).subscribe(response => {
-      console.log(response);
-    });
-  }
 
 }

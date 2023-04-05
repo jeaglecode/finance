@@ -9,6 +9,7 @@ import { UserService } from "../services/user.service";
 export class ProfilesComponent implements OnInit{
   public fetchedUsers: any = [];
   showUpdateProfileMessage= false;
+  public profileName: string = '';
   // profileName!: string;
   // currentAge!: number;
   // retirementAge!: number;
@@ -43,7 +44,8 @@ export class ProfilesComponent implements OnInit{
 
     this.userService.getUsers().subscribe((users: any) => {
       this.fetchedUsers = users;
-      this.yearsBetweenAges()
+      this.yearsBetweenAges();
+      this.fetchUser();
       console.log(this.fetchedUsers);
     });
 
@@ -108,7 +110,14 @@ export class ProfilesComponent implements OnInit{
     );
   }
 
+  fetchUser(){
+    if (this.fetchedUsers.profileName === '' ) {
+      this.profileName = "Profile not Named!";
+    }else {
+      this.profileName = this.fetchedUsers.profileName;
+    }
 
+  }
 
   // async getUsers(): Promise<void> {
   //   try {
@@ -139,7 +148,8 @@ export class ProfilesComponent implements OnInit{
     // this.setUserData();
     console.log(this.fetchedUsers);
     this.userService.addUser(this.fetchedUsers).subscribe(response => {
-      this.showMessageAndAutoHide()
+      this.showMessageAndAutoHide();
+      this.fetchUser();
       console.log(response);
     });
      }
