@@ -6,7 +6,7 @@
 
 .card-body {
 
-  font-size: .9em;
+  font-size: 1em;
 
 }
 .row {
@@ -20,8 +20,10 @@
   line-height:  .8em;
 }
 
+
 .blankText{
   color:transparent;
+  font-size: 1em;
 }
 
 
