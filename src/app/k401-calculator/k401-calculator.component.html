@@ -2,7 +2,7 @@
   <h3 class="text-center mb-4">Typical Plan vs IUL Plan Comparison</h3>
   <div class="row">
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card h-100">
         <div class="card-header cardHeader text-center">
           Typical Plan
         </div>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card h-100">
         <div class="card-header text-center">
           IUL
         </div>
@@ -70,14 +70,9 @@
           <div class="card-body col-8">%Fees:</div>
           <div class="card-body col-4">Included</div>
 
-          <div class="card-body col-8 blankText">
-            blank</div>
-          <div class="card-body col-4 blankText">
-            blank</div>
+          <hr class="cardCustomMargin">
 
-          <hr>
-
-
+            <div class="row">
 
           <div class="card-body col-12">Account Value at Retirement</div>
 
@@ -86,6 +81,9 @@
 
           <div class="card-body col-7">Total Account Value:</div>
           <div class="card-body col-5 sum">${{ finalIULCashValue | number: '1.0-0' }}</div>
+
+            </div>
+
         </div>
       </div>
     </div>
