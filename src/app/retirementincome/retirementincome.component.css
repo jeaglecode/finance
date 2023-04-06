@@ -6,7 +6,7 @@
 
 .card-body {
 
-  font-size: .9em;
+  font-size: 1em;
 
 }
 .row {
@@ -16,11 +16,47 @@
 }
 
 .sum {
-font-size: 1.5em;
-line-height:  .8em;
+
+  font-size: 1.5em;
+  line-height:  .8em;
+  /*border: 1px solid mediumpurple;*/
+  /*border-radius: 20px;*/
+}
+.purpleOutline {
+  border: 1px solid mediumpurple;
+  border-radius: 20px;
 }
 
 .blankText{
-    color:transparent;
+  color:transparent;
+  font-size: 1em;
+}
+.cardCustomMargin {
+
+  margin-top: 3.5em;
+}
+.container {
+  /*padding-left: 0px;*/
+  padding-right: .8em;
+  padding-bottom: 2em;
 }
 
+.inputContainer {
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
+.input-group-text {
+  background-color: rgba(0,0,0,0.85) !important;
+  color: white;
+  border: none;
+
+}
+.form-control {
+  background-color: rgba(0,0,0,0.85) !important;
+  color: white !important;
+  border-color: mediumpurple;
+  font-size: 1em !important;
+  border-radius: 30px;
+}
