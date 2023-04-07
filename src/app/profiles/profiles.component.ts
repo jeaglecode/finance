@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
 
 @Component({
@@ -48,17 +48,6 @@ export class ProfilesComponent implements OnInit{
       this.fetchUser();
       console.log(this.fetchedUsers);
     });
-
-
-
-
-
-
-
-
-
-
-
 
 
     // this.getUsers();
