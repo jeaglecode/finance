@@ -14,6 +14,7 @@ import { TaxesComponent } from './taxes/taxes.component';
 import { FeesComponent } from './fees/fees.component';
 import { UserService } from "./services/user.service";
 import { HttpClientModule } from "@angular/common/http";
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CurrencyMaskModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

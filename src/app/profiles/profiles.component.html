@@ -56,7 +56,7 @@
           <div class="col-4">
             <div class="form-group">
               <label for="annualPremium">Annual Premium:</label>
-              <input type="number" class="form-control purpleOutline" id="annualPremium" name="annualPremium" step=".01" [(ngModel)]="fetchedUsers.annualPremium">
+              <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0' }" class="form-control purpleOutline" id="annualPremium" name="annualPremium" step=".01" [(ngModel)]="fetchedUsers.annualPremium">
             </div>
           </div>
 
@@ -70,7 +70,7 @@
           <div class="col-4">
             <div class="form-group">
               <label for="lumpSum">Lump sum Premium:</label>
-              <input type="number" class="form-control purpleOutline" id="lumpSum" name="lumpSum" step=".01" [(ngModel)]="fetchedUsers.lumpSum">
+              <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="lumpSum" name="lumpSum" step=".01" [(ngModel)]="fetchedUsers.lumpSum">
             </div>
           </div>
 
@@ -85,7 +85,7 @@
           <div class="col-4">
             <div class="form-group">
             <label for="feesIUL">IUL fees:</label>
-            <input type="number" class="form-control purpleOutline" id="feesIUL" name="feesIUL" [(ngModel)]="fetchedUsers.feesIUL" step=".01">
+            <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="feesIUL" name="feesIUL" [(ngModel)]="fetchedUsers.feesIUL" step=".01">
           </div>
           </div>
 
@@ -101,7 +101,7 @@
           <div class="col-6">
             <div class="form-group">
               <label for="annualSpendableIncome">Annual Spendable Income:</label>
-              <input type="number" class="form-control purpleOutline" id="annualSpendableIncome" name="annualSpendableIncome" step=".01" [(ngModel)]="fetchedUsers.annualSpendableIncome">
+              <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="annualSpendableIncome" name="annualSpendableIncome" step=".01" [(ngModel)]="fetchedUsers.annualSpendableIncome">
             </div>
           </div>
 
@@ -149,7 +149,7 @@
         <div class="col-4">
           <div class="form-group">
             <label for="contribution">Contribution:</label>
-            <input type="number" class="form-control purpleOutline" id="contribution" name="contribution" step=".01" [(ngModel)]="fetchedUsers.contribution">
+            <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="contribution" name="contribution" step=".01" [(ngModel)]="fetchedUsers.contribution">
           </div>
         </div>
 
@@ -163,7 +163,7 @@
         <div class="col-3">
           <div class="form-group">
             <label for="currentAccountBalance">Current Account Balance:</label>
-            <input type="number" class="form-control purpleOutline" id="currentAccountBalance" name="currentAccountBalance"
+            <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="currentAccountBalance" name="currentAccountBalance"
                    step=".01" [(ngModel)]="fetchedUsers.currentAccountBalance">
           </div>
         </div>
@@ -178,7 +178,7 @@
         <div class="col-4">
           <div class="form-group">
             <label for="employerMatch">Employer Match (Annual $ Contribution):</label>
-            <input type="number" class="form-control purpleOutline" id="employerMatch" name="employerMatch" step=".01" [(ngModel)]="fetchedUsers.employerMatch">
+            <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="employerMatch" name="employerMatch" step=".01" [(ngModel)]="fetchedUsers.employerMatch">
           </div>
         </div>
 
