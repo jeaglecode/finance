@@ -19,3 +19,16 @@ form {
   border-radius: 10px;
 
 }
+
+.purpleOutline {
+  border: 1px solid mediumpurple;
+  border-radius: 20px;
+  background-color: rgb(27,27,27);
+  color: white;
+}
+.redOutline {
+  border: 1px solid darkred;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+}
