@@ -5,7 +5,7 @@
   <div class="row">
 
     <div class="col-sm-6">
-      <div class="card h-100">
+      <div class="card h-100" [ngClass]="{'warningMessageOnCardTypical': typicalAccountDepleted}">
 
         <div class="card-header cardHeader text-center">
           Typical Plan
@@ -19,27 +19,35 @@
           <div class="card-body col-4">{{(typicalTaxRateDuringRetirement) / 100 | percent}}</div>
 
           <div class="card-body col-8">Annual withdraw from Account:</div>
-          <div class="card-body col-4">{{typicalAnnualDrawFromAccount}}</div>
+          <div class="card-body col-4">${{typicalAnnualDrawFromAccount | number: '1.0-0'}}</div>
 
           <div class="card-body col-8">Rate of Return (During Retirement):</div>
           <div class="card-body col-4">{{(typicalRateOfReturnDuringRetirement) / 100 | percent}}</div>
           <hr>
           <div class="card-body col-8">Total Contributions to Account:</div>
-          <div class="card-body col-4">${{typicalTotalContribution}}</div>
+          <div class="card-body col-4">${{typicalTotalContribution | number: '1.0-0'}}</div>
 
           <div class="card-body col-12 fw-bold mt-4">Income During Retirement</div>
 <!--          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears) / 100 | percent}}</div>-->
 
           <div class="row purpleOutline">
           <div class="card-body col-8">Account Value:</div>
-          <div class="card-body col-4 sum">${{typicalAccountValue}}</div>
+          <div class="card-body col-4 sum">${{typicalAccountValue | number: '1.0-0' }}</div>
 
           <div class="card-body col-8">Annual Spendable Income:</div>
-          <div class="card-body col-4 sum">${{typicalAnnualSpendableIncome}}</div>
+          <div class="card-body col-4 sum">${{typicalAnnualSpendableIncome | number: '1.0-0'}}</div>
 
           <div class="card-body col-8">Total Spendable Income:</div>
-          <div class="card-body col-4 sum">${{typicalSpendableIncome}}</div>
+          <div class="card-body col-4 sum">${{typicalSpendableIncome | number: '1.0-0' }}</div>
+
+
+
+
           </div>
+
+          <span *ngIf="typicalAccountDepleted" class="col warningMessage">
+              TYPICAL PLAN ACCOUNT IS EMPTY
+            </span>
 
         </div>
 
@@ -81,10 +89,10 @@
           <div class="card-body col-8">Total Spendable Income:</div>
           <div class="card-body col-4 sum">${{IULSpendableIncome}}</div>
 
-          <div class="card-body col-8">Total Death Benefit:</div>
-          <div class="card-body col-4 sum">${{IULDeathBenefit}}</div>
+<!--          <div class="card-body col-8">Total Death Benefit:</div>-->
+<!--          <div class="card-body col-4 sum">${{IULDeathBenefit}}</div>-->
           </div>
-
+          <hr class="cardCustomMarginInvisible">
         </div>
       </div>
     </div>
@@ -104,7 +112,7 @@
                     <span class="input-group-text" id="age">Age:</span>
                   </div>
                   <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-                         [(ngModel)]="typicalSetAge" (change)="typicalAgeSelector()" [min]="typicalMinAge" >
+                         [(ngModel)]="typicalSetAge" (change)="typicalAgeSelector()" [min]="typicalMinAge" [max]="typicalMaxAge" >
                 </div>
               </div>
 
