@@ -1,97 +1,253 @@
 <div class="container">
-  <h3 class="text-center mb-4">Typical Plan vs IUL Plan Comparison</h3>
+
+  <h3 class="text-center mb-4">Retirement Income</h3>
+
   <div class="row">
+
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card h-100">
+
         <div class="card-header cardHeader text-center">
           Typical Plan
         </div>
+
         <div class="row container ">
-        <div class="card-body col-6">Current Age:</div>
-        <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Age at Retirement:</div>
+          <div class="card-body col-4">{{retirementAge}}</div>
 
-          <div class="card-body col-6">Age at Retirement:</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Tax Rate (During Retirement):</div>
+          <div class="card-body col-4">{{(typicalTaxRateDuringRetirement) / 100 | percent}}</div>
 
-          <div class="card-body col-6">Income Tax (Pre-Retirement):</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Annual withdraw from Account:</div>
+          <div class="card-body col-4">{{typicalAnnualDrawFromAccount}}</div>
+
+          <div class="card-body col-8">Rate of Return (During Retirement):</div>
+          <div class="card-body col-4">{{(typicalRateOfReturnDuringRetirement) / 100 | percent}}</div>
           <hr>
-          <div class="card-body col-6">Annual Contributions:</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Total Contributions to Account:</div>
+          <div class="card-body col-4">${{typicalTotalContribution}}</div>
 
-          <div class="card-body col-6">Current Account Balance:</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-12 fw-bold mt-4">Income During Retirement</div>
+<!--          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears) / 100 | percent}}</div>-->
 
-          <div class="card-body col-6">Annual Rate of Return:</div>
-          <div class="card-body col-6">5</div>
+          <div class="row purpleOutline">
+          <div class="card-body col-8">Account Value:</div>
+          <div class="card-body col-4 sum">${{typicalAccountValue}}</div>
 
-          <div class="card-body col-6">%Fees:</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Annual Spendable Income:</div>
+          <div class="card-body col-4 sum">${{typicalAnnualSpendableIncome}}</div>
 
-          <div class="card-body col-6">Employer Match (Annual $ Contributions):</div>
-          <div class="card-body col-6">55</div>
-          <hr>
-          <div class="card-body col-12">Account Value at Retirement</div>
+          <div class="card-body col-8">Total Spendable Income:</div>
+          <div class="card-body col-4 sum">${{typicalSpendableIncome}}</div>
+          </div>
 
-          <div class="card-body col-6">Total Contribution (-Employer Match):</div>
-          <div class="card-body col-6 sum">55</div>
+        </div>
 
-          <div class="card-body col-6">Total Account Value:</div>
-          <div class="card-body col-6 sum">55</div>
       </div>
-      </div>
+
     </div>
 
+
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card h-100">
         <div class="card-header text-center">
           IUL
         </div>
-
         <div class="row container ">
-          <div class="card-body col-6">Current Age:</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Age at Retirement:</div>
+          <div class="card-body col-4">{{retirementAge}}</div>
 
-          <div class="card-body col-6">Age at Retirement:</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Tax Rate (During Retirement):</div>
+          <div class="card-body col-4">{{(IULTaxRateDuringRetirement) / 100 | percent}}</div>
 
-          <div class="card-body col-6">Income Tax (Pre-Retirement):</div>
-          <div class="card-body col-6">55</div>
-          <hr>
-          <div class="card-body col-6">Annual Premium:</div>
-          <div class="card-body col-6">55</div>
+          <div class="card-body col-8">Annual Draw Against Account:</div>
+          <div class="card-body col-4">{{IULAnnualDrawAgainstAccount}}</div>
 
-          <div class="card-body col-6">Lump Sum Premium:</div>
-          <div class="card-body col-6">55</div>
+          <hr class="cardCustomMargin">
 
-          <div class="card-body col-6">Annual Rate of Return:</div>
-          <div class="card-body col-6">5</div>
+          <div class="card-body col-8">Total Premium Paid:</div>
+          <div class="card-body col-4">${{IULTotalPremiumPaid}}</div>
 
-          <div class="card-body col-6">%Fees:</div>
-          <div class="card-body col-6">Included</div>
+          <div class="card-body col-8 fw-bold mt-4">Account Value at Retirement</div>
 
-          <div class="card-body col-6 blankText">
-            blank</div>
-          <div class="card-body col-6 blankText">
-            blank</div>
+<!--       calculate value-->
+          <div class="row purpleOutline">
+          <div class="card-body col-8">Account Value:</div>
+          <div class="card-body col-4 sum">${{IULAccountValue}}</div>
 
-          <hr>
+          <div class="card-body col-8">Annual Spendable Income:</div>
+          <div class="card-body col-4 sum">${{IULAnnualSpendableIncome}}</div>
 
+          <div class="card-body col-8">Total Spendable Income:</div>
+          <div class="card-body col-4 sum">${{IULSpendableIncome}}</div>
 
-
-          <div class="card-body col-12">Account Value at Retirement</div>
-
-          <div class="card-body col-6">Total Contribution (-Employer Match):</div>
-          <div class="card-body col-6 sum">55</div>
-
-          <div class="card-body col-6">Total Account Value:</div>
-          <div class="card-body col-6 sum">55</div>
-
-
+          <div class="card-body col-8">Total Death Benefit:</div>
+          <div class="card-body col-4 sum">${{IULDeathBenefit}}</div>
+          </div>
 
         </div>
+      </div>
     </div>
   </div>
+
+  <div class="container inputContainer mt-2">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="row">
+
+            <div class="card-body">
+
+              <div class="col-4 offset-3">
+                <div class="input-group">
+                  <div class="input-group-prepend mx-1">
+                    <span class="input-group-text" id="age">Age:</span>
+                  </div>
+                  <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                         [(ngModel)]="typicalSetAge" (change)="typicalAgeSelector()" [min]="typicalMinAge" >
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+            <!--        <div class="card-body col-5 sum">$5000000</div>-->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="row">
+
+            <div class="card-body">
+
+              <div class="col-4 offset-3">
+                <div class="input-group">
+                  <div class="input-group-prepend mx-1">
+                    <span class="input-group-text" id="retirementAge">Age:</span>
+                  </div>
+                  <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                         [(ngModel)]="profileData.currentAge" (change)="changeNumber()">
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+            <!--        <div class="card-body col-5 sum">$5000000</div>-->
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+
 </div>
-</div>
+
+
+<!--<div class="container">-->
+<!--  <h3 class="text-center mb-4">Retirement Plan</h3>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-6">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header cardHeader text-center">-->
+<!--          Typical Plan-->
+<!--        </div>-->
+<!--        <div class="row container ">-->
+<!--        <div class="card-body col-6">Current Age:</div>-->
+<!--        <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Age at Retirement:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Income Tax (Pre-Retirement):</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+<!--          <hr>-->
+<!--          <div class="card-body col-6">Annual Contributions:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Current Account Balance:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Annual Rate of Return:</div>-->
+<!--          <div class="card-body col-6">5</div>-->
+
+<!--          <div class="card-body col-6">%Fees:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Employer Match (Annual $ Contributions):</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+<!--          <hr>-->
+<!--          <div class="card-body col-12">Account Value at Retirement</div>-->
+
+<!--          <div class="card-body col-6">Total Contribution (-Employer Match):</div>-->
+<!--          <div class="card-body col-6 sum">55</div>-->
+
+<!--          <div class="card-body col-6">Total Account Value:</div>-->
+<!--          <div class="card-body col-6 sum">55</div>-->
+<!--      </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="col-sm-6">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header text-center">-->
+<!--          IUL-->
+<!--        </div>-->
+
+<!--        <div class="row container ">-->
+<!--          <div class="card-body col-6">Current Age:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Age at Retirement:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Income Tax (Pre-Retirement):</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+<!--          <hr>-->
+<!--          <div class="card-body col-6">Annual Premium:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Lump Sum Premium:</div>-->
+<!--          <div class="card-body col-6">55</div>-->
+
+<!--          <div class="card-body col-6">Annual Rate of Return:</div>-->
+<!--          <div class="card-body col-6">5</div>-->
+
+<!--          <div class="card-body col-6">%Fees:</div>-->
+<!--          <div class="card-body col-6">Included</div>-->
+
+<!--          <div class="card-body col-6 blankText">-->
+<!--            blank</div>-->
+<!--          <div class="card-body col-6 blankText">-->
+<!--            blank</div>-->
+
+<!--          <hr>-->
+
+
+<!--          <div class="card-body col-12">Account Value at Retirement</div>-->
+
+<!--          <div class="card-body col-6">Total Contribution (-Employer Match):</div>-->
+<!--          <div class="card-body col-6 sum">55</div>-->
+
+<!--          <div class="card-body col-6">Total Account Value:</div>-->
+<!--          <div class="card-body col-6 sum">55</div>-->
+
+
+<!--        </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</div>-->
 

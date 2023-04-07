@@ -5,7 +5,7 @@ export class CustomRouteReuseStrategy extends BaseRouteReuseStrategy {
   private storedRoutes = new Map<string, DetachedRouteHandle>();
 
   override shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    const pathsToDetach = ['profiles', 'retirement-income', 'taxes', 'fees'];
+    const pathsToDetach = ['profiles','taxes', 'fees'];
     return pathsToDetach.includes(route.routeConfig?.path ?? '');
   }
 

@@ -1,11 +1,16 @@
 <div class="container">
+
   <h3 class="text-center mb-4">Typical Plan vs IUL Plan Comparison</h3>
+
   <div class="row">
+
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card h-100">
+
         <div class="card-header cardHeader text-center">
           Typical Plan
         </div>
+
         <div class="row container ">
           <div class="card-body col-8">Current Age:</div>
           <div class="card-body col-4">{{profileData.currentAge}}</div>
@@ -14,7 +19,7 @@
           <div class="card-body col-4">{{profileData.retirementAge}}</div>
 
           <div class="card-body col-8">Income Tax (Pre-Retirement):</div>
-          <div class="card-body col-4">{{(profileData.incomeTaxRateDuringWorkingYears)/100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.incomeTaxRateDuringWorkingYears) / 100 | percent}}</div>
           <hr>
           <div class="card-body col-8">Annual Contributions:</div>
           <div class="card-body col-4">${{profileData.contribution}}</div>
@@ -23,31 +28,32 @@
           <div class="card-body col-4">${{profileData.currentAccountBalance}}</div>
 
           <div class="card-body col-8">Annual Rate of Return:</div>
-          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears)/100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears) / 100 | percent}}</div>
 
           <div class="card-body col-8">%Fees:</div>
-          <div class="card-body col-4">{{(profileData.percentFees)/100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.percentFees) / 100 | percent}}</div>
 
           <div class="card-body col-8">Employer Match:</div>
           <div class="card-body col-4">${{profileData.employerMatch}}</div>
           <hr>
           <div class="card-body col-12">Account Value at Retirement</div>
+           <div class="row purpleOutline">
 
           <div class="card-body col-7">Total Contribution (-Employer Match):</div>
           <div class="card-body col-5 sum">${{ total401kContributions | number: '1.0-0' }}</div>
 
           <div class="card-body col-7">Total Account Value:</div>
           <div class="card-body col-5 sum">${{ final401kBalance | number: '1.0-0'}}</div>
+           </div>
         </div>
       </div>
     </div>
 
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card h-100">
         <div class="card-header text-center">
           IUL
         </div>
-
         <div class="row container ">
           <div class="card-body col-8">Current Age:</div>
           <div class="card-body col-4">{{profileData.currentAge}}</div>
@@ -56,7 +62,7 @@
           <div class="card-body col-4">{{profileData.retirementAge}}</div>
 
           <div class="card-body col-8">Income Tax (Pre-Retirement):</div>
-          <div class="card-body col-4">{{(profileData.incomeTaxRateBeforeRetirement)/100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.incomeTaxRateBeforeRetirement) / 100 | percent}}</div>
           <hr>
           <div class="card-body col-8">Annual Premium:</div>
           <div class="card-body col-4">${{profileData.annualPremium}}</div>
@@ -65,106 +71,30 @@
           <div class="card-body col-4">${{profileData.lumpSum}}</div>
 
           <div class="card-body col-8">Annual Rate of Return:</div>
-          <div class="card-body col-4">{{(profileData.rateOfReturn)/100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.rateOfReturn) / 100 | percent}}</div>
 
           <div class="card-body col-8">%Fees:</div>
           <div class="card-body col-4">Included</div>
 
-          <div class="card-body col-8 blankText">
-            blank</div>
-          <div class="card-body col-4 blankText">
-            blank</div>
+          <hr class="cardCustomMargin">
 
-          <hr>
+          <div class="row">
+            <div class="card-body col-12">Account Value at Retirement</div>
 
+            <div class="row purpleOutline">
+            <div class="card-body col-7">Total Contribution (-Employer Match):</div>
+            <div class="card-body col-5 sum">${{ totalIULContributions | number: '1.0-0' }}</div>
+            <div class="card-body col-7">Total Account Value:</div>
+            <div class="card-body col-5 sum">${{ finalIULCashValue | number: '1.0-0' }}</div>
+            </div>
 
-
-          <div class="card-body col-12">Account Value at Retirement</div>
-
-          <div class="card-body col-7">Total Contribution (-Employer Match):</div>
-          <div class="card-body col-5 sum">${{ totalIULContributions | number: '1.0-0' }}</div>
-
-          <div class="card-body col-7">Total Account Value:</div>
-          <div class="card-body col-5 sum">${{ finalIULCashValue | number: '1.0-0' }}</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!--<div class="container">-->
-<!--  <h3 class="text-center m-4 pb-4">Typical Plan vs IUL Plan Comparison</h3>-->
-<!--  <div class="row">-->
-<!--    <div class="col">-->
-<!--      <h2 class="purple">Typical Plan</h2>-->
-<!--      <form>-->
-<!--        <div class="form-group">-->
-<!--          <label for="initial401kBalance">Initial 401k Balance ($):</label>-->
-<!--          <input type="number" class="form-control" id="initial401kBalance" name="initial401kBalance" [(ngModel)]="initial401kBalance" step="0.01">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="annualContribution">Annual Contribution ($):</label>-->
-<!--          <input type="number" class="form-control" id="annualContribution" name="annualContribution" [(ngModel)]="annualContribution" step="0.01">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="annualReturn">Annual Return (%):</label>-->
-<!--          <input type="number" class="form-control" id="annualReturn" name="annualReturn" [(ngModel)]="annualReturn" step="0.01">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="years">Years:</label>-->
-<!--          <input type="number" class="form-control" id="years" name="years" [(ngModel)]="years">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="fees">Fees as a Percentage (%):</label>-->
-<!--          <input type="number" class="form-control" id="fees" name="fees" [(ngModel)]="fees" step="0.01">-->
-<!--        </div>-->
-<!--        <button type="button" class="btn btn-primary mt-2" (click)="calculate401k()">Calculate</button>-->
-<!--      </form>-->
-<!--      <div class="back">-->
-<!--        <h3 class="purple">Final Balance: ${{ final401kBalance | number: '1.0-0' }}</h3>-->
-<!--        <h3 class="purple">Total Contributions: ${{ total401kContributions | number: '1.0-0' }}</h3>-->
-<!--      </div>-->
-
-
-
-
-<!--    </div>-->
-<!--    <div class="col"><h2 class="purple">IUL Plan</h2>-->
-<!--      <app-iul-calculator></app-iul-calculator>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 
 
