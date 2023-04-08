@@ -56,7 +56,9 @@
           <div class="col-4">
             <div class="form-group">
               <label for="annualPremium">Annual Premium:</label>
-              <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0' }" class="form-control purpleOutline" id="annualPremium" name="annualPremium" step=".01" [(ngModel)]="fetchedUsers.annualPremium">
+              <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0' }"
+                     class="form-control purpleOutline" id="annualPremium" name="annualPremium" step=".01" [(ngModel)]="fetchedUsers.annualPremium"
+                     autocomplete="off">
             </div>
           </div>
 
@@ -164,7 +166,7 @@
           <div class="form-group">
             <label for="currentAccountBalance">Current Account Balance:</label>
             <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="currentAccountBalance" name="currentAccountBalance"
-                   step=".01" [(ngModel)]="fetchedUsers.currentAccountBalance">
+                   step=".01" [(ngModel)]="fetchedUsers.currentAccountBalance" autocomplete="off">
           </div>
         </div>
 

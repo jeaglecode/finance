@@ -167,6 +167,7 @@ export class RetirementincomeComponent {
       this.typicalAccountDepleted = true;
       this.typicalAccountValue = 0;
       this.typicalAnnualSpendableIncome = 0;
+      this.typicalSetAge = this.typicalMaxAge;
     } else {
       this.typicalAccountDepleted = false;
       this.typicalAnnualSpendableIncome = this.profileData.annualSpendableIncome;
