@@ -114,10 +114,24 @@
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-4">
             <div class="form-group">
-              <label for="incomeTaxRateBeforeRetirement">Income Tax Rate (Pre-Retirement) (%):</label>
+              <label for="incomeTaxRateBeforeRetirement">Per Retirement Tax(%):</label>
               <input type="number" class="form-control purpleOutline" id="incomeTaxRateBeforeRetirement" name="incomeTaxRateBeforeRetirement" step=".01" [(ngModel)]="fetchedUsers.incomeTaxRateBeforeRetirement">
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="form-group">
+              <label for="loanPercent">Loan Percent(%):</label>
+              <input type="number" class="form-control purpleOutline" id="loanPercent" name="loanPercent" step=".01" [(ngModel)]="fetchedUsers.loanPercentForIUL">
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="form-group">
+              <label for="rateOfReturnDuringRetirementIUL">New Rate of Return(%):</label>
+              <input type="number" class="form-control purpleOutline" id="rateOfReturnDuringRetirementIUL" name="rateOfReturnDuringRetirementIUL" step=".01" [(ngModel)]="fetchedUsers.rateOfReturnDuringRetirementIUL">
             </div>
           </div>
 

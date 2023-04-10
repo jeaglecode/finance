@@ -23,8 +23,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     IulCalculatorComponent,
     NavbarComponent,
     ProfilesComponent,
-    RetirementincomeComponent,
-    TaxesComponent,
+    TaxesComponent,    RetirementincomeComponent,
+
     FeesComponent
   ],
   imports: [
