@@ -11,10 +11,13 @@ export class RetirementincomeComponent {
   number = 0;
   typicalAccountDepleted = false;
 
-  currentAge = 0;
-  retirementAge = 0;
-  yearsToRetirement = 0;
 
+  currentAge = 0;
+
+  retirementAge = 0;// Can be typical or IUL
+
+
+  yearsToRetirement = 0;
   typicalSetAge = 0;
   typicalMinAge = 0;
   typicalMaxAge = 0;
@@ -27,14 +30,31 @@ export class RetirementincomeComponent {
   typicalAnnualSpendableIncome = 0;
   typicalSpendableIncome = 0;
 
-  IULTaxRateDuringRetirement = 0;
+
+  IULAccountDepleted = false;
+  IULSetAge = 0;
+  IULMinAge = 0;
+  IULMaxAge = 110;
+
+  IULNewRateOfReturnAfterRetirement = 0; //new
+  IULLoanPercentFee = 0; //new
+  IULFlatFee = 0;
+
+
+
+
+
+
+  readonly IULTaxRateDuringRetirement = 0;
   IULAnnualDrawAgainstAccount = 0;
 
   IULTotalPremiumPaid = 0;
   IULAccountValue = 0;
   IULAnnualSpendableIncome = 0;
-  IULSpendableIncome = 0;
+  IULTotalSpendableIncome = 0;
   IULDeathBenefit = 0;
+
+
 
 
   constructor(private userService: UserService) {
@@ -53,18 +73,124 @@ export class RetirementincomeComponent {
       this.typicalTaxRateDuringRetirement = this.profileData.incomeTaxRateDuringWorkingYears;
       this.typicalAnnualSpendableIncome = this.profileData.annualSpendableIncome;
       this.typicalRateOfReturnDuringRetirement = this.profileData.rateOfReturnDuringRetirement;
-
       this.findTypicalMaxAge();
       this.typicalContributions();
       this.typicalAnnualWithdraw();
       this.calculateTypical();
+
+
+      this.IULNewRateOfReturnAfterRetirement = this.profileData.rateOfReturnDuringRetirementIUL;
+      this.IULSetAge = this.profileData.retirementAge;
+      this.IULAnnualDrawAgainstAccount = this.profileData.annualSpendableIncome;
+      this.IULTotalPremiumPaid = this.profileData.annualPremium;
+      this.IULAnnualSpendableIncome = this.profileData.annualSpendableIncome;
+      this.IULMinAge = this.retirementAge;
+
+      this.calculateIUL();
+      // this.calculateIULAccountValue()//
       console.log(this.profileData);
     });
   }
 
-  changeNumber() {
-    this.number = this.profileData.currentAge;
+
+  IULAgeSelectorField() {
+    console.log("vaule changes")
+    if (this.IULSetAge < this.IULMinAge) {
+      this.IULSetAge = this.IULMinAge;
+      // this.calculateIULAccountValue();
+    }
+    if(this.IULSetAge > this.IULMaxAge ){
+      this.IULSetAge = this.IULMaxAge;
+
+    }
+    this.calculateIULAccountValue();
+    this.cumulativeIULTotalSpendableIncome();
   }
+
+  calculateIULAccountValue() {
+    //////DELETE THIS
+    // this.IULTotalSpendableIncome=10000;//
+    let accountValue = this.calculateIUL();
+
+    let yearsIntoRetirement = this.IULSetAge - this.retirementAge;
+    let rateOfReturn = this.IULNewRateOfReturnAfterRetirement / 100;
+    let IULPercentFees = this.profileData.feesIULPercent / 100; //1 percent
+    let IULLoanPercent = this.profileData.loanPercentForIUL / 100; //2 percent
+    let IULLoanFee = 0;
+    let yearsUntilUntilAccountDepleted = 0;
+    let staticAnnualSpend = this.profileData.annualSpendableIncome;
+
+    // accountValue += accountValue * rateOfReturn;
+    // accountValue -= accountValue * IULPercentFees;
+    // IULLoanFee = this.IULTotalSpendableIncome * IULLoanPercent;
+    // accountValue -= IULLoanFee;
+    for (let i = 0; i < yearsIntoRetirement; i++) {
+      console.log(i);
+      yearsUntilUntilAccountDepleted = yearsUntilUntilAccountDepleted + 1;
+      accountValue += accountValue * rateOfReturn;
+      console.log(accountValue);
+      accountValue -= accountValue * IULPercentFees;
+      console.log(accountValue);
+      IULLoanFee = (staticAnnualSpend * (i + 1)) * IULLoanPercent;
+      console.log(IULLoanFee);
+      accountValue -= IULLoanFee;
+      console.log('ending account' + accountValue);
+
+      // accountValueWithRateOfReturn = accountValue + (accountValue * rateOfReturn);
+      // accountValueWithAnnualFee = accountValueWithRateOfReturn - (accountValueWithRateOfReturn * annualFees);
+      // accountValue = accountValueWithAnnualFee;
+      // accountValue = accountValue - this.typicalAnnualDrawFromAccount;
+
+      if (accountValue <= 0) {
+        this.IULAccountDepleted = true;
+        this.IULAccountValue = 0;
+        break;
+      }
+    }
+
+    this.IULAccountValue = accountValue;
+    console.log(accountValue);
+
+  }
+
+  calculateIUL() {
+    let balance = this.profileData.lumpSum;
+    for (let i = 0; i < this.profileData.yearsIUL; i++) {
+      balance += this.profileData.annualPremium;
+      balance *= (1 + this.profileData.rateOfReturn / 100);
+      balance -= this.profileData.feesIUL;
+    }
+    return this.IULAccountValue = balance;
+  }
+
+  cumulativeIULTotalSpendableIncome() {
+    let yearIntoRetirement = this.IULSetAge - this.retirementAge;
+    if (this.IULAccountDepleted) {
+      this.IULTotalSpendableIncome = this.profileData.annualSpendableIncome * (this.IULMaxAge - this.retirementAge - 1);
+      ///reserved the overload of a user spending more than they have in their account
+    } else {
+      this.IULTotalSpendableIncome = yearIntoRetirement * this.profileData.annualSpendableIncome;
+     }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   typicalAgeSelector() {
     console.log("vaule changes")
@@ -167,6 +293,7 @@ export class RetirementincomeComponent {
       this.typicalAccountDepleted = true;
       this.typicalAccountValue = 0;
       this.typicalAnnualSpendableIncome = 0;
+      this.typicalSetAge = this.typicalMaxAge;
     } else {
       this.typicalAccountDepleted = false;
       this.typicalAnnualSpendableIncome = this.profileData.annualSpendableIncome;
