@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,8 @@ import { FeesComponent } from './fees/fees.component';
 import { UserService } from "./services/user.service";
 import { HttpClientModule } from "@angular/common/http";
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,12 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     NgbModule,
     FormsModule,
     HttpClientModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
+
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
