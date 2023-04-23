@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 @Component({
   selector: 'app-profiles',
@@ -38,16 +40,21 @@ export class ProfilesComponent implements OnInit{
 
   user: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
 
-    this.userService.getUsers().subscribe((users: any) => {
-      this.fetchedUsers = users;
-      this.yearsBetweenAges();
-      this.fetchUser();
-      console.log(this.fetchedUsers);
-    });
+    this.spinner.show();
+
+
+      this.userService.getUsers().subscribe((users: any) => {
+        this.fetchedUsers = users;
+        this.yearsBetweenAges();
+        this.fetchUser();
+        console.log(this.fetchedUsers);
+        this.spinner.hide();
+      });
+
 
 
     // this.getUsers();
