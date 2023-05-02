@@ -1,0 +1,88 @@
+.card{
+  background-color: rgba(0,0,0,0.85) !important;
+  border-radius: 30px;
+
+}
+
+.card-body {
+
+  font-size: 1em;
+  padding: .75em;
+
+}
+.row {
+
+  margin-left:0px;
+  margin-right:0px;
+}
+
+.sum {
+
+  font-size: 1.5em;
+  line-height:  .8em;
+  /*border: 1px solid mediumpurple;*/
+  /*border-radius: 20px;*/
+}
+.purpleOutline {
+  border: 1px solid mediumpurple;
+  border-radius: 20px;
+}
+
+.blankText{
+  color:transparent;
+  font-size: 1em;
+}
+.cardCustomMargin {
+
+  margin-top: 3.5em;
+}
+.container {
+  /*padding-left: 0px;*/
+  padding-right: .8em;
+  padding-bottom: 2em;
+}
+
+.inputContainer {
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
+.input-group-text {
+  background-color: rgba(0,0,0,0.85) !important;
+  color: white;
+  border: none;
+
+}
+.form-control {
+  background-color: rgba(0,0,0,0.85) !important;
+  color: white !important;
+  border-color: mediumpurple;
+  font-size: 1em !important;
+  border-radius: 30px;
+}
+
+.warningMessage {
+
+  background-color: red;
+  border-radius: 30px;
+  height: 37px;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: .65em;
+
+}
+.warningMessageOnCardTypical{
+  border: 3px solid red;
+  box-shadow: inset 0px 0px 120px 1120px #fa000024;
+}
+.cardCustomMarginInvisible {
+  margin-top: 2em;
+  border: none;
+}
+
+.taxesYellow {
+  color: yellow;
+}
