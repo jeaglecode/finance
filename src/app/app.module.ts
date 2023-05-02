@@ -17,6 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModule } from './auth/auth.module'
 
 @NgModule({
   declarations: [
@@ -37,8 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     CurrencyMaskModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    AuthModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [UserService],
