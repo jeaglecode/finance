@@ -11,8 +11,8 @@
 }
 .row {
 
-  margin-left:0px;
-  margin-right:0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .sum {
@@ -34,8 +34,27 @@
   border-radius: 20px;
 }
 .container {
+  /*padding-right: .8em;*/
   padding-bottom: 2em;
 
+
+}
+.inputContainer {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.input-group-text {
+  background-color: rgba(0,0,0,0.85) !important;
+  color: white;
+  border: none;
+
+}
+.form-control {
+  background-color: rgba(0,0,0,0.85) !important;
+  color: white !important;
+  border-color: mediumpurple;
+  font-size: 1em !important;
+  border-radius: 30px;
 }
 
 

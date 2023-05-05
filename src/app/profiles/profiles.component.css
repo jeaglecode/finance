@@ -31,4 +31,6 @@ form {
   border-radius: 20px;
   background-color: black;
   color: white;
+  padding-left: 2em;
+  padding-right: 2em;
 }

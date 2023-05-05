@@ -7,7 +7,10 @@
 .card-body {
 
   font-size: 1em;
-  padding: .75em;
+  /*padding: .75em;*/
+  padding-top: .75em;
+
+  padding-bottom: .75em;
 
 }
 .row {
