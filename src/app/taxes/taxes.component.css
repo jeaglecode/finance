@@ -1,3 +1,7 @@
+.customHeight {
+  max-height: 100px;
+}
+
 .card{
   background-color: rgba(0,0,0,0.85) !important;
   border-radius: 30px;
@@ -8,9 +12,10 @@
 
   font-size: 1em;
   /*padding: .75em;*/
-  padding-top: .75em;
+  line-height: .85em;
 
-  padding-bottom: .75em;
+
+  /*padding-bottom: .75em;*/
 
 }
 .row {
@@ -40,7 +45,6 @@
   margin-top: 3.5em;
 }
 .container {
-  /*padding-left: 0px;*/
   padding-right: .8em;
   padding-bottom: 2em;
 }
@@ -88,4 +92,25 @@
 
 .taxesYellow {
   color: yellow;
+}
+
+
+/* Set the banner to the right side of the screen and span the height of the viewport */
+.banner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+}
+
+/* Rotate the text 90 degrees and style it */
+.rotated-text {
+  transform: rotate(-270deg) translateY(-60%);
+  white-space: nowrap;
+  color: lightgray;
+  font-size: 28px;
 }

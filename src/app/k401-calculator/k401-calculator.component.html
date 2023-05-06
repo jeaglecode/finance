@@ -1,17 +1,20 @@
 <div class="container">
 
-  <h4 class="text-center mb-4">Typical Plan vs IUL Plan Comparison</h4>
+  <div class="banner">
+    <div class="rotated-text">Account Value</div>
+  </div>
 
-  <div class="row">
+
+  <div class="row mt-4">
 
     <div class="col-sm-6">
       <div class="card h-100">
 
-        <div class="card-header cardHeader text-center">
+        <div class="card-header cardHeader text-center textYellow fw-bold">
           Typical Plan
         </div>
 
-        <div class="row container ">
+        <div class="row container">
           <div class="card-body col-8">Current Age:</div>
           <div class="card-body col-4">{{profileData.currentAge}}</div>
 
@@ -36,7 +39,7 @@
           <div class="card-body col-8">Employer Match:</div>
           <div class="card-body col-4">${{profileData.employerMatch}}</div>
           <hr>
-          <div class="card-body col-12">Account Value at Retirement</div>
+          <div class="card-body col-12 textYellow fw-bold">Account Value at Retirement</div>
            <div class="row purpleOutline">
 
           <div class="card-body col-7">Total Contribution (-Employer Match):</div>
@@ -51,10 +54,10 @@
 
     <div class="col-sm-6">
       <div class="card h-100">
-        <div class="card-header text-center">
+        <div class="card-header text-center textYellow fw-bold">
           IUL
         </div>
-        <div class="row container ">
+        <div class="row container">
           <div class="card-body col-8">Current Age:</div>
           <div class="card-body col-4">{{profileData.currentAge}}</div>
 
@@ -79,7 +82,7 @@
           <hr class="cardCustomMargin">
 
           <div class="row">
-            <div class="card-body col-12">Account Value at Retirement</div>
+            <div class="card-body col-12 textYellow fw-bold">Account Value at Retirement</div>
 
             <div class="row purpleOutline">
             <div class="card-body col-7">Total Contribution (-Employer Match):</div>
