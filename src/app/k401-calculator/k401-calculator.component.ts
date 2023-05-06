@@ -12,7 +12,6 @@ export class K401CalculatorComponent implements OnInit{
   annualReturn = 7;
   years = 12;
   fees = 2;
-
   final401kBalance = 0;
   total401kContributions = 0;
 
