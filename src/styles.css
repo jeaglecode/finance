@@ -1,7 +1,13 @@
 body {
 
   background-image: url("https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_1280.jpg");
-  background-color: rebeccapurple;
+  /*background-color: rebeccapurple;*/
+  background-color: rgba(0,0,0,0.75);
   background-size: cover;
   color: white;
+  /*overflow: hidden; !* Hide scrollbars *!*/
+  /*overflow-y: scroll;*/
+
+
 }
+

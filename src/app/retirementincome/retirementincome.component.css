@@ -9,8 +9,9 @@
 }
 .row {
 
-  margin-left:0px;
-  margin-right:0px;
+  margin-left: 0px;
+  margin-right: 0px;
+
 }
 
 .sum {
@@ -24,6 +25,7 @@
   border: 1px solid mediumpurple;
   border-radius: 20px;
 }
+
 
 .blankText{
   color:transparent;
@@ -78,6 +80,26 @@
 .cardCustomMarginInvisible {
   margin-top: 3.5em;
   border: none;
-
+}
+.textYellow {
+  color: yellow;
 }
 
+.banner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+}
+
+/* Rotate the text 90 degrees and style it */
+.rotated-text {
+  transform: rotate(-270deg) translateY(20%);
+  white-space: nowrap;
+  color: lightgray;
+  font-size: 28px;
+}

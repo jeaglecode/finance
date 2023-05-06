@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { K401CalculatorComponent } from './k401-calculator/k401-calculator.component';
-import { IulCalculatorComponent } from './iul-calculator/iul-calculator.component';
 import { FormsModule } from "@angular/forms";
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfilesComponent } from './profiles/profiles.component';
@@ -23,7 +22,6 @@ import { AuthModule } from './auth/auth.module'
   declarations: [
     AppComponent,
     K401CalculatorComponent,
-    IulCalculatorComponent,
     NavbarComponent,
     ProfilesComponent,
     TaxesComponent,

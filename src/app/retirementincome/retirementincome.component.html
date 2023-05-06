@@ -1,17 +1,20 @@
 <div class="container">
 
-  <h3 class="text-center mb-4">Retirement Income</h3>
+  <div class="banner">
+    <div class="rotated-text">Retirement</div>
+  </div>
 
-  <div class="row">
+
+  <div class="row mt-4">
 
     <div class="col-sm-6">
       <div class="card h-100" [ngClass]="{'warningMessageOnCardTypical': typicalAccountDepleted}">
 
-        <div class="card-header cardHeader text-center">
+        <div class="card-header cardHeader text-center textYellow fw-bold">
           Typical Plan
         </div>
 
-        <div class="row container ">
+        <div class="row container">
           <div class="card-body col-8">Age at Retirement:</div>
           <div class="card-body col-4">{{retirementAge}}</div>
 
@@ -27,7 +30,7 @@
           <div class="card-body col-8">Total Contributions to Account:</div>
           <div class="card-body col-4">${{typicalTotalContribution | number: '1.0-0'}}</div>
 
-          <div class="card-body col-12 fw-bold mt-4">Income During Retirement</div>
+          <div class="card-body col-12 fw-bold mt-4 textYellow">Income During Retirement</div>
 <!--          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears) / 100 | percent}}</div>-->
 
           <div class="row purpleOutline">
@@ -58,10 +61,10 @@
 
     <div class="col-sm-6">
       <div class="card h-100">
-        <div class="card-header text-center">
+        <div class="card-header text-center textYellow fw-bold">
           IUL
         </div>
-        <div class="row container ">
+        <div class="row container">
           <div class="card-body col-8">Age at Retirement:</div>
           <div class="card-body col-4">{{retirementAge}}</div>
 
@@ -78,7 +81,7 @@
           <div class="card-body col-8">Total Premium Paid:</div>
           <div class="card-body col-4">${{IULTotalPremiumPaid | number: '1.0-0'}}</div>
 
-          <div class="card-body col-8 fw-bold mt-4">Account Value at Retirement</div>
+          <div class="card-body col-8 fw-bold mt-4 textYellow">Account Value at Retirement</div>
 
 <!--       calculate value-->
           <div class="row purpleOutline">

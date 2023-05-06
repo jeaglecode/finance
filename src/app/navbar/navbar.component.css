@@ -1,0 +1,11 @@
+.purpleOutline {
+  border: 1px solid mediumpurple;
+  border-radius: 20px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+
+}
+.active {
+  color: gold !important;
+  font-weight: bold;
+}
