@@ -17,7 +17,6 @@ export class UserService {
   addUser(user: any): Observable<any> {
     return this.http.post(this.url, user).pipe(
       tap((response: any) => {
-        // Update the cached user data with the new data.
         this.user = response;
       })
     );
