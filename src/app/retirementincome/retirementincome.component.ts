@@ -70,7 +70,7 @@ export class RetirementincomeComponent {
       this.retirementAge = this.profileData.retirementAge;
       this.yearsToRetirement = this.profileData.yearsTypical;
 
-      this.typicalTaxRateDuringRetirement = this.profileData.incomeTaxRateDuringWorkingYears;
+      this.typicalTaxRateDuringRetirement = this.profileData.incomeTaxRateDuringRetirement;
       this.typicalAnnualSpendableIncome = this.profileData.annualSpendableIncome;
       this.typicalRateOfReturnDuringRetirement = this.profileData.rateOfReturnDuringRetirement;
       this.findTypicalMaxAge();
