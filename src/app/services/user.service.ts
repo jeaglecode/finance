@@ -24,7 +24,10 @@ export class UserService {
   }
 
   fetchUsers(): Observable<any> {
-    return this.http.get(this.url);
+    return this.http.get(this.url).pipe(
+      tap((response: any) => {
+        this.user = response;
+      }));
   }
 
   getUsers(): Observable<any> {
@@ -40,8 +43,7 @@ export class UserService {
         tap((response: any) => {
           // Update the cached user data with the new data.
           this.user = response;
-        })
-      );
+        }));
     }
   }
 }
