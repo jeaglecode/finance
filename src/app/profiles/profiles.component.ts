@@ -47,8 +47,8 @@ export class ProfilesComponent implements OnInit{
     this.spinner.show();
 
 
-      this.userService.getUsers().subscribe((users: any) => {
-        this.fetchedUsers = users;
+      this.userService.fetchUsers().subscribe((response: any[]) => {
+        this.fetchedUsers = response;
         this.yearsBetweenAges();
         this.fetchUser();
         console.log(this.fetchedUsers);
@@ -91,20 +91,20 @@ export class ProfilesComponent implements OnInit{
 
 }
 
-  getUsers(): void {
-    this.userService.getUsers().subscribe(
-      (response: any[]) => {
-        this.user = response;
-        this.fetchedUsers = response;
-        console.log(this.user);
-        this.setUserData(this.user)
-        console.log(this.user);
-      },
-      (error) => {
-        console.error('Error fetching users:', error);
-      }
-    );
-  }
+  // getUsers(): void {
+  //   this.userService.getUsers().subscribe(
+  //     (response: any[]) => {
+  //       this.user = response;
+  //       this.fetchedUsers = response;
+  //       console.log(this.user);
+  //       this.setUserData(this.user)
+  //       console.log(this.user);
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching users:', error);
+  //     }
+  //   );
+  // }
 
   fetchUser(){
     if (this.fetchedUsers.profileName === '' ) {
@@ -114,21 +114,6 @@ export class ProfilesComponent implements OnInit{
     }
 
   }
-
-  // async getUsers(): Promise<void> {
-  //   try {
-  //     const response = await this.userService.getUsers().toPromise();
-  //     this.user = response;
-  //     this.fetchedUsers = response;
-  //     console.log(this.user);
-  //     this.setUserData(this.user);
-  //     console.log(this.user);
-  //   } catch (error) {
-  //     console.error('Error fetching users:', error);
-  //   }
-  // }
-
-
 
   yearsBetweenAges()  {
     // this.yearsIUL = this.retirementAge - this.currentAge;
