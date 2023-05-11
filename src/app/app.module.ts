@@ -16,7 +16,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthModule } from './auth/auth.module'
+import { AuthModule } from './auth/auth.module';
+import { ErrorComponent } from './error/error.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthModule } from './auth/auth.module'
     ProfilesComponent,
     TaxesComponent,
     RetirementincomeComponent,
-    FeesComponent
+    FeesComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
 import { NgxSpinnerService } from "ngx-spinner";
+import { catchError, finalize, throwError } from "rxjs";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -40,24 +42,28 @@ export class ProfilesComponent implements OnInit{
 
   user: any;
 
-  constructor(private userService: UserService,private spinner: NgxSpinnerService) { }
+  constructor(private userService: UserService,private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit() {
-
     this.spinner.show();
 
-
-      this.userService.fetchUsers().subscribe((response: any[]) => {
+    this.userService.fetchUsers()
+      .pipe(
+        catchError((error: any) => {
+          console.error('An error occurred:', error);
+          this.router.navigate(['/error']);
+          return throwError('Something went wrong');
+        }),
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe((response: any[]) => {
         this.fetchedUsers = response;
         this.yearsBetweenAges();
         this.fetchUser();
         console.log(this.fetchedUsers);
-        this.spinner.hide();
       });
-
-
-
-    // this.getUsers();
   }
 
 
