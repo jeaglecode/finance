@@ -14,19 +14,19 @@
           Typical Plan
         </div>
 
-        <div class="row container">
+        <div class="row container top-line-padding">
           <div class="card-body col-8">Age at Retirement:</div>
-<!--                    <div class="card-body col-4">{{retirementAge}}</div>-->
+          <div class="card-body col-4">{{retirementAge}}</div>
 
           <div class="card-body col-8">Annual Contribution:</div>
-          <!--          <div class="card-body col-4">{{(typicalTaxRateDuringRetirement) / 100 | percent}}</div>-->
+          <div class="card-body col-4">${{typicalAnnualContribution | number: '1.0-0'}}</div>
 
           <div class="card-body col-8">Current Account Balance:</div>
-          <!--          <div class="card-body col-4">${{typicalAnnualDrawFromAccount | number: '1.0-0'}}</div>-->
+          <div class="card-body col-4">${{typicalCurrentAccountBalance | number: '1.0-0'}}</div>
           <hr>
 
           <div class="card-body col-8">Tax Rate (Before Retirement):</div>
-          <!--          <div class="card-body col-4">{{(typicalRateOfReturnDuringRetirement) / 100 | percent}}</div>-->
+          <div class="card-body col-4">{{(typicalTaxRateBeforeRetirement) / 100 | percent}}</div>
 
           <div class="card-body col-8">Annual Taxes Deferred:</div>
           <!--          <div class="card-body col-4">${{typicalTotalContribution | number: '1.0-0'}}</div>-->
@@ -83,22 +83,22 @@
           IUL
         </div>
 
-        <div class="row container">
+        <div class="row container top-line-padding">
           <div class="card-body col-8">Age at Retirement:</div>
-          <!--          <div class="card-body col-4">{{retirementAge}}</div>-->
+          <div class="card-body col-4">{{retirementAge}}</div>
 
           <div class="card-body col-8">Annual Premium:</div>
-          <!--          <div class="card-body col-4">{{(typicalTaxRateDuringRetirement) / 100 | percent}}</div>-->
+          <div class="card-body col-4">${{IULAnnualContribution  | number: '1.0-0'}}</div>
 
           <div class="card-body col-8">Lump Sum Premium:</div>
-          <!--          <div class="card-body col-4">${{typicalAnnualDrawFromAccount | number: '1.0-0'}}</div>-->
+                    <div class="card-body col-4">${{IULLumpSumPremium | number: '1.0-0'}}</div>
           <hr>
 
           <div class="card-body col-8">Tax Rate (Before Retirement):</div>
-          <!--          <div class="card-body col-4">{{(typicalRateOfReturnDuringRetirement) / 100 | percent}}</div>-->
+          <div class="card-body col-4">{{IULTaxRateBeforeRetirement / 100 | percent}}</div>
 
           <div class="card-body col-8">Annual Taxes Paid:</div>
-          <!--          <div class="card-body col-4">${{typicalTotalContribution | number: '1.0-0'}}</div>-->
+<!--                    <div class="card-body col-4">${{IULTaxRateBeforeRetirement | number: '1.0-0'}}</div>-->
 
           <div class="card-body col-8">Total Tax Paid (Before Retirement):</div>
           <!--          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears) / 100 | percent}}</div>-->
