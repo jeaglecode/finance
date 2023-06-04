@@ -60,7 +60,7 @@
 
 
     <div class="col-sm-6">
-      <div class="card h-100">
+      <div class="card h-100" [ngClass]="{'successfulMessageOnCardTypical': IULSuccessful}">
         <div class="card-header text-center textYellow fw-bold">
           IUL
         </div>
@@ -91,8 +91,8 @@
           <div class="card-body col-8">Annual Spendable Income:</div>
           <div class="card-body col-4 sum">${{IULAnnualSpendableIncome | number: '1.0-0'}}</div>
 
-          <div class="card-body col-8">Total Spendable Income:</div>
-          <div class="card-body col-4 sum">${{IULTotalSpendableIncome | number: '1.0-0'}}</div>
+          <div class="card-body col-8" [ngClass]="{'successMessage': IULSuccessful}">Total Spendable Income:</div>
+          <div class="card-body col-4 sum" [ngClass]="{'successMessage2': IULSuccessful}">${{IULTotalSpendableIncome | number: '1.0-0'}}</div>
 
 <!--          <div class="card-body col-8">Total Death Benefit:</div>-->
 <!--          <div class="card-body col-4 sum">${{IULDeathBenefit}}</div>-->
