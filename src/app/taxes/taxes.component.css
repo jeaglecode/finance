@@ -72,15 +72,43 @@
 .warningMessage {
 
   background-color: red;
-  border-radius: 30px;
-  height: 37px;
+  border-radius: 30px  0px 0px 30px;
+  /*height: 37px;*/
   color: white;
   font-size: 1.5em;
   font-weight: bold;
-  text-align: center;
-  margin-top: .65em;
+  /*text-align: center;*/
+  /*margin-top: .65em;*/
 
 }
+
+.warningMessage2 {
+
+  background-color: red;
+  border-radius: 0px 30px 30px 0px;
+  /*height: 37px;*/
+  color: white;
+  /*font-size: 1.5em;*/
+  font-weight: bold;
+  /*text-align: center;*/
+  /*margin-top: .65em;*/
+
+}
+
+.warningMessage3 {
+
+  /*background-color: red;*/
+  /*border-radius: 0px 30px 30px 0px;*/
+  /*height: 37px;*/
+  color: red;
+  /*font-size: 1.5em;*/
+  /*font-weight: bold;*/
+  /*text-align: center;*/
+  /*margin-top: .65em;*/
+
+}
+
+
 .warningMessageOnCardTypical{
   border: 3px solid red;
   box-shadow: inset 0px 0px 120px 1120px #fa000024;
@@ -100,17 +128,33 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 100px;
+  width: 5.8vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 /* Rotate the text 90 degrees and style it */
 .rotated-text {
-  transform: rotate(-270deg) translateY(-60%);
+  transform: rotate(-270deg);
+  transform-origin: center;
+  position: absolute;
+  /*translateY(calc(50% - 50vh));*/
   white-space: nowrap;
   color: lightgray;
-  font-size: 28px;
+  font-size: 2em;
+}
+
+
+@media screen and (max-width: 900px) {
+  .banner,
+  .rotated-text {
+    display: none;
+  }
+}
+
+.top-line-padding{
+  padding-top: .30em;
 }
