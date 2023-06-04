@@ -4,5 +4,203 @@
     <div class="rotated-text">Fees</div>
   </div>
 
+  <div class="row mt-4">
 
+    <div class="col-sm-6">
+      <div class="card h-100" [ngClass]="{'warningMessageOnCardTypical': typicalOutOfAgeRange}">
+
+
+        <div class="card-header cardHeader text-center taxesYellow fw-bold">
+          Typical Plan
+        </div>
+
+        <div class="row container top-line-padding">
+          <div class="card-body col-8">Current Age:</div>
+          <div class="card-body col-4">{{currentAge}}</div>
+
+          <div class="card-body col-8">Age at Retirement:</div>
+          <div class="card-body col-4">{{retirementAge}}</div>
+
+          <div class="card-body col-8">Annual Contribution:</div>
+          <div class="card-body col-4">${{typicalAnnualContribution | number: '1.0-0'}}</div>
+
+          <div class="card-body col-8">Current Account Balance:</div>
+          <div class="card-body col-4">${{typicalCurrentAccountBalance | number: '1.0-0'}}</div>
+          <hr>
+
+          <div class="card-body col-8">Rate of Return:</div>
+          <div class="card-body col-4">{{typicalRateOfReturn / 100 | percent}}</div>
+
+          <div class="card-body col-8">Fees:</div>
+          <div class="card-body col-4">{{typicalFees / 100 | percent}}</div>
+
+<!--          <hr>-->
+
+<!--          <div class="card-body col-8">Fees - No Life Insurance</div>-->
+<!--          <div class="card-body col-4">${{typicalAnnualSpendableIncomeGross | number: '1.0-0' }}</div>-->
+
+
+<!--          <div class="card-body col-8">Annual Spendable Income in Retirement:</div>-->
+<!--          <div class="card-body col-4">${{typicalAnnualSpendableIncomeNet | number: '1.0-0' }}</div>-->
+
+
+
+<!--          <div class="card-body col-8 taxesYellow fw-bold">Taxes Paid During Retirement</div>-->
+
+
+          <hr class="cardCustomMarginInvisible">
+
+
+          <div class="row purpleOutline">
+            <div class="card-body col-8">Annual Fees:</div>
+            <div class="card-body col-4 sum" >${{UITypicalAnnualFees  | number: '1.0-0' }}</div>
+
+<!--            [ngClass]="{'warningMessage3': typicalTotalTaxesDeferredIsNegative}"-->
+
+            <div class="card-body col-8" [ngClass]="{'warningMessage': typicalOutOfAgeRange}">Total Fees Paid:</div>
+            <div class="card-body col-4 sum" [ngClass]="{'warningMessage2': typicalOutOfAgeRange}" >${{UITypicalTotalFees  | number: '1.0-0' }}</div>
+
+<!--            <div class="card-body col-8">Annual Income Tax Paid:</div>-->
+<!--            <div class="card-body col-4 sum">${{typicalAnnualIncomeTaxPaid | number: '1.0-0' }}</div>-->
+            <!--          </div>-->
+
+<!--            <div class="card-body col-8">Total Income Tax Paid:</div>-->
+<!--            [ngClass]="{'warningMessage': typicalOutOfAgeRange}"-->
+<!--            <div class="card-body col-4 warningMessage2 sum" [ngClass]="{'warningMessage2': typicalOutOfAgeRange}">${{typicalTotalIncomeTaxPaid | number: '1.0-0' }}</div>-->
+            <!--          <span *ngIf="typicalAccountDepleted" class="col warningMessage">-->
+            <!--              TYPICAL PLAN ACCOUNT IS EMPTY-->
+            <!--            </span>-->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-6">
+      <div class="card h-100" [ngClass]="{'successfulMessageOnCardTypical': IULSuccessful}" >
+
+
+        <div class="card-header cardHeader text-center taxesYellow fw-bold">
+          IUL
+        </div>
+
+        <div class="row container top-line-padding">
+          <div class="card-body col-8">Current Age:</div>
+          <div class="card-body col-4">{{currentAge}}</div>
+
+          <div class="card-body col-8">Age at Retirement:</div>
+          <div class="card-body col-4">{{retirementAge}}</div>
+<!--          <div class="card-body col-4">${{IULAnnualContribution  | number: '1.0-0'}}</div>-->
+
+          <div class="card-body col-8">Annual Premium:</div>
+          <div class="card-body col-4">${{IULAnnualPremium | number: '1.0-0'}}</div>
+
+
+          <div class="card-body col-8">Lump Sum Premium:</div>
+          <div class="card-body col-4">${{IULLumpSumPremium |  number: '1.0-0'}}</div>
+          <hr>
+          <div class="card-body col-8">Rate of Return:</div>
+          <div class="card-body col-4">{{IULRateOfReturn / 100 | percent}}</div>
+
+          <div class="card-body col-8">Fees:</div>
+          <div class="card-body col-4">Included</div>
+
+
+          <hr class="cardCustomMarginInvisible">
+          <!--          <div class="card-body col-8">Annual Pre-Tax Income in Retirement</div>-->
+          <!--            <div class="card-body col-4 sum">${{typicalSpendableIncome | number: '1.0-0' }}</div>-->
+          <!--          </div>-->
+
+<!--          <div class="card-body col-8">Annual Spendable Income in Retirement:</div>-->
+<!--          <div class="card-body col-4">${{UIIULAnnualSpendableIncomeInRetirement | number: '1.0-0' }}</div>-->
+          <!--          </div>-->
+
+
+<!--          <div class="card-body col-8 taxesYellow fw-bold">Taxes Saved During Retirement</div>-->
+
+
+
+
+
+          <div class="row purpleOutline ">
+            <div class="card-body col-8" >Annual Fees:</div>
+            <div class="card-body col-4 sum">${{UIIULAnnualFees | number: '1.0-0' }}</div>
+
+            <div class="card-body col-8" [ngClass]="{'successMessage': IULSuccessful}">Total Fees Paid:</div>
+            <div class="card-body col-4 sum" [ngClass]="{'successMessage2': IULSuccessful}">${{UIIULTotalFees | number: '1.0-0'}}</div>
+
+<!--            <div class="card-body col-8">Total Death Benefits:</div>-->
+<!--            <div class="card-body col-4 sum">${{UIIULAnnualIncomeTaxSaved | number: '1.0-0' }}</div>-->
+            <!--          </div>-->
+<!--            <div class="card-body col-8">Total Death Benefits:</div>-->
+<!--            <div class="card-body col-4 sum">${{UIIULTotalIncomeTaxSaved | number: '1.0-0' }}</div>-->
+
+            <!--          <span *ngIf="typicalAccountDepleted" class="col warningMessage">-->
+            <!--              TYPICAL PLAN ACCOUNT IS EMPTY-->
+            <!--            </span>-->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="container inputContainer mt-2">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="row">
+
+              <div class="card-body">
+
+                <div class="col-4 offset-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend mx-1">
+                      <span class="input-group-text" id="age">Age:</span>
+                    </div>
+                    <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                           [(ngModel)]="typicalSetAge" (change)="typicalAgeSelector()" [min]="typicalMinAge" [max]="typicalMaxAge"   >
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="row">
+
+              <div class="card-body">
+
+                <div class="col-4 offset-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend mx-1">
+                      <span class="input-group-text" id="retirementAge">Age:</span>
+                    </div>
+                    <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                           [(ngModel)]="IULSetAge" (change)="IULAgeSelector()" [min]="IULMinAge" [max]="IULMaxAge"
+                          >
+
+
+                  </div>
+                  <!--                [(ngModel)]="IULSetAge" (change)="IULAgeSelectorField()" [min]="IULMinAge" [max]="IULMaxAge"-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

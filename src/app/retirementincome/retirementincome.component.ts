@@ -156,9 +156,9 @@ export class RetirementincomeComponent {
   calculateIUL() {
     let balance = this.profileData.lumpSum;
     for (let i = 0; i < this.profileData.yearsIUL; i++) {
-      balance += this.profileData.annualPremium;
       balance *= (1 + this.profileData.rateOfReturn / 100);
       balance -= this.profileData.feesIUL;
+      balance += this.profileData.annualPremium;
     }
     return this.IULAccountValue = balance;
   }
