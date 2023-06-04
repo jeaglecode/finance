@@ -39,6 +39,7 @@ export class RetirementincomeComponent {
   IULNewRateOfReturnAfterRetirement = 0; //new
   IULLoanPercentFee = 0; //new
   IULFlatFee = 0;
+  IULSuccessful = false;
 
 
 
@@ -105,7 +106,24 @@ export class RetirementincomeComponent {
     }
     this.calculateIULAccountValue();
     this.cumulativeIULTotalSpendableIncome();
+    this.IULCheckForSuccess();
   }
+
+  IULCheckForSuccess(){
+    if (this.IULSetAge >= this.typicalMaxAge) {
+      this.IULSuccessful = true;
+    }
+    if(this.IULSetAge < this.typicalMaxAge) {
+      this.IULSuccessful = false;
+    }
+
+    console.log(this.IULSuccessful);
+
+  }
+
+
+
+
 
   calculateIULAccountValue() {
     //////DELETE THIS

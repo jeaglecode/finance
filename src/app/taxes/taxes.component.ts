@@ -53,6 +53,7 @@ export class TaxesComponent implements OnInit{
   readonly UIIULTotalRate = 0;
   UIIULAnnualIncomeTaxSaved = 0;
   UIIULTotalIncomeTaxSaved = 0;
+  IULSuccessful = false;
 
 
   constructor(private userService: UserService) {
@@ -214,10 +215,22 @@ export class TaxesComponent implements OnInit{
 
 
     this.IULTotalIncomeTaxSaved();
+    this.IULCheckForSuccess();
 
   }
 
 
+  IULCheckForSuccess(){
+    if (this.IULSetAge >= this.typicalMaxAge) {
+      this.IULSuccessful = true;
+    }
+    if(this.IULSetAge < this.typicalMaxAge) {
+      this.IULSuccessful = false;
+    }
+
+    console.log(this.IULSuccessful);
+
+  }
 
   IULTotalIncomeTaxSaved() {
     let currentIteration = this.IULSetAge - this.IULMinAge;
