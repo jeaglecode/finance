@@ -78,8 +78,8 @@
 
 
     <div class="col-sm-6">
-      <div class="card h-100" >
-        <!--        [ngClass]="{'warningMessageOnCardTypical': typicalAccountDepleted}"-->
+      <div class="card h-100" [ngClass]="{'successfulMessageOnCardTypical': IULSuccessful}"  >
+
 
         <div class="card-header cardHeader text-center taxesYellow fw-bold">
           IUL
@@ -132,8 +132,8 @@
             <div class="card-body col-8">Annual Income Tax Saved:</div>
                         <div class="card-body col-4 sum">${{UIIULAnnualIncomeTaxSaved | number: '1.0-0' }}</div>
             <!--          </div>-->
-            <div class="card-body col-8">Total Income Tax Saved:</div>
-                        <div class="card-body col-4 sum">${{UIIULTotalIncomeTaxSaved | number: '1.0-0' }}</div>
+            <div class="card-body col-8" [ngClass]="{'successMessage': IULSuccessful}">Total Income Tax Saved:</div>
+                        <div class="card-body col-4 sum" [ngClass]="{'successMessage2': IULSuccessful}">${{UIIULTotalIncomeTaxSaved | number: '1.0-0' }}</div>
 
             <!--          <span *ngIf="typicalAccountDepleted" class="col warningMessage">-->
             <!--              TYPICAL PLAN ACCOUNT IS EMPTY-->
