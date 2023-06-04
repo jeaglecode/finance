@@ -28,7 +28,7 @@ export class TaxesComponent implements OnInit{
   typicalTotalIncomeTaxPaid = 0;
   typicalSetAge = 0;
   typicalMinAge = 0;
-  typicalMaxAge = 100;
+  typicalMaxAge = 0;
 
   typicalAnnualDrawFromAccount = 0;
   typicalAccountValue = 0;

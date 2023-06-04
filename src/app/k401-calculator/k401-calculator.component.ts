@@ -49,9 +49,9 @@ export class K401CalculatorComponent implements OnInit{
     console.log('calculateIUL() called');
     let balance = 0;
     for (let i = 0; i < this.profileData.yearsIUL; i++) {
-      balance += this.profileData.annualPremium;
       balance *= (1 + this.profileData.rateOfReturn / 100);
       balance -= this.profileData.feesIUL;
+      balance += this.profileData.annualPremium;
 
     }
     console.log('balance: ', balance);
