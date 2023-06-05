@@ -15,6 +15,12 @@ export class TaxesComponent implements OnInit{
 
   currentAge = 0;
   retirementAge = 0;// Can be typical or IUL
+  ageClick = false;
+  elementId = "";
+  selectorTypical = false;
+  retireAgeSelected = false;
+  ageSelected = false;
+
   typicalAnnualContribution = 0;
   typicalCurrentAccountBalance = 0;
   typicalTaxRateBeforeRetirement = 0;
@@ -131,6 +137,15 @@ export class TaxesComponent implements OnInit{
    this.typicalTotalTaxesDeferredNegative();
    this.typicalOutOfAgeRangeAlgo();
 
+    if(this.ageSelected){
+
+      this.IULSetAge = this.typicalSetAge;
+      this.IULAgeSelector();
+
+    }
+
+
+
   }
 
   typicalTotalTaxesDeferredNegative(){
@@ -217,6 +232,14 @@ export class TaxesComponent implements OnInit{
     this.IULTotalIncomeTaxSaved();
     this.IULCheckForSuccess();
 
+    if(this.retireAgeSelected){
+
+      // if(this.IULSetAge <= this.typicalMaxAge) {
+      this.typicalSetAge  = this.IULSetAge;
+      this.typicalAgeSelector();
+      // }
+    }
+
   }
 
 
@@ -296,7 +319,39 @@ export class TaxesComponent implements OnInit{
     return this.typicalAccountValue = balance;
   }
 
+  ageClicked(event: Event){
 
+    this.elementId = (event.target as Element).id;
+    console.log(this.elementId);
+    this.ageClick = !this.ageClick;
+
+    if(this.elementId === 'age' && this.ageSelected) {
+      this.ageSelected = false;
+
+    }else if(this.elementId === 'age' && !this.ageSelected){
+      this.ageSelected = true;
+      this.retireAgeSelected = false;
+      this.IULSetAge = this.typicalSetAge;
+      // this.selectorTypical = true;
+      this.IULAgeSelector();
+
+
+    }
+
+
+    if(this.elementId === 'retirementAge' && this.retireAgeSelected) {
+      this.retireAgeSelected = false;
+
+    }else if(this.elementId === 'retirementAge' && !this.retireAgeSelected){
+      this.retireAgeSelected = true;
+      this.ageSelected = false;
+      this.typicalSetAge = this.IULSetAge;
+      this.typicalAgeSelector();
+    }
+
+
+
+  }
 
 
 }

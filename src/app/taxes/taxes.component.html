@@ -160,7 +160,7 @@
               <div class="col-4 offset-3">
                 <div class="input-group">
                   <div class="input-group-prepend mx-1">
-                    <span class="input-group-text" id="age">Age:</span>
+                    <button class="input-group-text" id="age" (click)="ageClicked($event)"  [ngClass]="{'ageSelector': ageSelected}">Age:</button>
                   </div>
                   <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
                          [(ngModel)]="typicalSetAge" (change)="typicalAgeSelector()" [min]="typicalMinAge" [max]="typicalMaxAge">
@@ -180,7 +180,7 @@
               <div class="col-4 offset-3">
                 <div class="input-group">
                   <div class="input-group-prepend mx-1">
-                    <span class="input-group-text" id="retirementAge">Age:</span>
+                    <button class="input-group-text" id="retirementAge" (click)="ageClicked($event)"  [ngClass]="{'ageSelector': retireAgeSelected}">Age:</button>
                   </div>
                   <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
                          [(ngModel)]="IULSetAge" (change)="IULAgeSelector()" [min]="IULMinAge" [max]="IULMaxAge">

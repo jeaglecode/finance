@@ -16,6 +16,12 @@ export class RetirementincomeComponent {
 
   retirementAge = 0;// Can be typical or IUL
 
+  ageClick = false;
+  elementId = "";
+  selectorTypical = false;
+  retireAgeSelected = false;
+  ageSelected = false;
+
 
   yearsToRetirement = 0;
   typicalSetAge = 0;
@@ -107,6 +113,16 @@ export class RetirementincomeComponent {
     this.calculateIULAccountValue();
     this.cumulativeIULTotalSpendableIncome();
     this.IULCheckForSuccess();
+
+    if(this.retireAgeSelected){
+
+      // if(this.IULSetAge <= this.typicalMaxAge) {
+      this.typicalSetAge  = this.IULSetAge;
+      this.typicalAgeSelector();
+      // }
+    }
+
+
   }
 
   IULCheckForSuccess(){
@@ -218,6 +234,15 @@ export class RetirementincomeComponent {
     }
     this.calculateTypicalAccountValue();
     this.cumulativeTypicalTotalSpendableIncome();
+
+    if(this.ageSelected){
+
+      this.IULSetAge = this.typicalSetAge;
+      this.IULAgeSelectorField();
+
+    }
+
+
   }
 
   typicalContributions() {
@@ -317,4 +342,42 @@ export class RetirementincomeComponent {
       this.typicalAnnualSpendableIncome = this.profileData.annualSpendableIncome;
     }
   }
+
+  ageClicked(event: Event){
+
+    this.elementId = (event.target as Element).id;
+    console.log(this.elementId);
+    this.ageClick = !this.ageClick;
+
+    if(this.elementId === 'age' && this.ageSelected) {
+      this.ageSelected = false;
+
+    }else if(this.elementId === 'age' && !this.ageSelected){
+      this.ageSelected = true;
+      this.retireAgeSelected = false;
+      this.IULSetAge = this.typicalSetAge;
+      // this.selectorTypical = true;
+      this.IULAgeSelectorField();
+
+
+    }
+
+
+    if(this.elementId === 'retirementAge' && this.retireAgeSelected) {
+      this.retireAgeSelected = false;
+
+    }else if(this.elementId === 'retirementAge' && !this.retireAgeSelected){
+      this.retireAgeSelected = true;
+      this.ageSelected = false;
+      this.typicalSetAge = this.IULSetAge;
+      this.typicalAgeSelector();
+    }
+
+
+
+  }
+
+
+
+
 }
