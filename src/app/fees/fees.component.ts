@@ -10,6 +10,11 @@ export class FeesComponent implements OnInit{
   public profileData: any = [];
   currentAge = 0;
   retirementAge = 0;// Can be typical or IUL
+  ageClick = false;
+  elementId = "";
+  selectorTypical = false;
+  retireAgeSelected = false;
+  ageSelected = false;
 
   typicalAnnualContribution = 0;
   typicalCurrentAccountBalance = 0;
@@ -61,7 +66,7 @@ export class FeesComponent implements OnInit{
       this.typicalMinAge = this.profileData.currentAge;
       this.typicalSetAge = this.profileData.currentAge;
       this.typicalRateOfReturnDuringRetirement = this.profileData.rateOfReturnDuringRetirement;
-      console.log(this.profileData);
+      // console.log(this.profileData);
       this.calculateAnnualFees();
 
 
@@ -77,7 +82,7 @@ export class FeesComponent implements OnInit{
 
       this.findTypicalMaxAge();
       this.IULCalculateFess();
-      console.log(this.typicalMaxAge);
+      // console.log(this.typicalMaxAge);
 
 
 
@@ -85,6 +90,11 @@ export class FeesComponent implements OnInit{
     }
 
   typicalAgeSelector(){
+
+    // if(this.elementId === "retirementAge" && this.ageClick && !this.selectorTypical){
+    //   this.elementId = "age";
+    //   this.selectorTypical = true;
+    // }
 
     if(this.typicalSetAge > this.typicalMaxAge) {
       this.typicalSetAge = this.typicalMaxAge;
@@ -94,9 +104,21 @@ export class FeesComponent implements OnInit{
       this.typicalSetAge = this.typicalMinAge;
     }
 
+    // if(this.ageClick){
+    //   this.IULSetAge  = this.typicalSetAge;
+    //   this.IULAgeSelector();
+    // }
+
 
     this.calculateAnnualFees();
     this.typicalOutOfAgeRangeAlgo();
+
+    if(this.ageSelected){
+
+        this.IULSetAge = this.typicalSetAge;
+        this.IULAgeSelector()
+
+    }
 
 
   }
@@ -116,7 +138,7 @@ export class FeesComponent implements OnInit{
   calculateAnnualFees(){
 
     let iteration = this.typicalSetAge - this.typicalMinAge + 1;
-    console.log(iteration);
+    // console.log(iteration);
 
     this.calculateUntilRetirement(iteration);
 
@@ -129,8 +151,8 @@ export class FeesComponent implements OnInit{
     let annualContribution = 0;
     let annualFees = 0;
     let totalFees = 0;
-    console.log(yearsUntilRetirement);
-    console.log(annualContribution);
+    // console.log(yearsUntilRetirement);
+    // console.log(annualContribution);
 
     for (let i = 0; i < iteration; i++) {
 
@@ -139,7 +161,7 @@ export class FeesComponent implements OnInit{
 
       if (i >= yearsUntilRetirement) {
         annualContribution = annualContribution - this.typicalAnnualDrawFromAccount;
-        console.log(this.typicalAnnualDrawFromAccount);
+        // console.log(this.typicalAnnualDrawFromAccount);
         annualContribution = annualContribution + (annualContribution * (this.typicalRateOfReturnDuringRetirement / 100));
 
       }
@@ -164,9 +186,9 @@ export class FeesComponent implements OnInit{
       // this.typicalCurrentAccountBalance = this.typicalCurrentAccountBalance + annualContribution;
       // this.typicalCurrentAccountBalance = this.typicalCurrentAccountBalance + (this.typicalCurrentAccountBalance * (this.typicalRateOfReturn / 100));
       // this.typicalCurrentAccountBalance = this.typicalCurrentAccountBalance - (this.typicalCurrentAccountBalance * (this.typicalFees / 100));
-      console.log(annualContribution);
-      console.log(annualFees);
-      console.log(i);
+      // console.log(annualContribution);
+      // console.log(annualFees);
+      // console.log(i);
 
     }
 
@@ -191,6 +213,12 @@ export class FeesComponent implements OnInit{
 
   IULAgeSelector() {
 
+
+    // if(this.elementId === "age" && this.ageClick && this.selectorTypical){
+    //   this.elementId = "retirementAge";
+    //   this.selectorTypical = false;
+    // }
+
     if(this.IULSetAge > this.IULMaxAge) {
       this.IULSetAge = this.IULMaxAge;
 
@@ -200,11 +228,25 @@ export class FeesComponent implements OnInit{
     }
 
 
+
+
+
+
     let iteration = this.IULSetAge - this.IULMinAge + 1;
-    console.log(iteration);
+    // console.log(iteration);
 
     this.IULCalculateUntilRetirement(iteration);
     this.IULCheckForSuccess();
+
+    if(this.retireAgeSelected){
+
+      // if(this.IULSetAge <= this.typicalMaxAge) {
+        this.typicalSetAge  = this.IULSetAge;
+        this.typicalAgeSelector();
+      // }
+    }
+
+
 
 
   }
@@ -219,14 +261,67 @@ export class FeesComponent implements OnInit{
       this.IULSuccessful = false;
     }
 
-    console.log(this.IULSuccessful);
+    // console.log(this.IULSuccessful);
 
   }
+ageClicked(event: Event) {
+
+  this.elementId = (event.target as Element).id;
+  console.log(this.elementId);
+     this.ageClick = !this.ageClick;
+
+     if(this.elementId === 'age' && this.ageSelected) {
+       this.ageSelected = false;
+
+     }else if(this.elementId === 'age' && !this.ageSelected){
+       this.ageSelected = true;
+       this.retireAgeSelected = false;
+         this.IULSetAge = this.typicalSetAge;
+         // this.selectorTypical = true;
+         this.IULAgeSelector();
+
+
+     }
+
+
+  if(this.elementId === 'retirementAge' && this.retireAgeSelected) {
+    this.retireAgeSelected = false;
+
+  }else if(this.elementId === 'retirementAge' && !this.retireAgeSelected){
+    this.retireAgeSelected = true;
+    this.ageSelected = false;
+    this.typicalSetAge = this.IULSetAge;
+    this.typicalAgeSelector();
+  }
+
+
+
+     }
+
+
+
+
+     // if(this.elementId === 'age' && this.ageClick) {
+     //   this.IULSetAge = this.typicalSetAge;
+     //   this.selectorTypical = true;
+     //   this.IULAgeSelector();
+     // }
+     //  else if(this.elementId === 'retirementAge' && this.ageClick) {
+     //
+     //    this.retireAgeSelected = true;
+     //   this.typicalSetAge = this.IULSetAge;
+     //   this.selectorTypical = false;
+     //   this.typicalAgeSelector();
+     //
+     // }
+
+
+
 
 
   IULCalculateFess() {
     let iteration = this.IULSetAge - this.IULMinAge + 1;
-    console.log(iteration);
+    // console.log(iteration);
     this.IULCalculateUntilRetirement(iteration);
 
   }
@@ -243,23 +338,23 @@ export class FeesComponent implements OnInit{
     let totalFees = 0;
     let loanFee = (this.profileData.loanPercentForIUL / 100) * this.profileData.annualSpendableIncome;
 
-    console.log(yearsUntilRetirement);
+    // console.log(yearsUntilRetirement);
 
     for (let i = 0; i < iteration; i++) {
 
-      console.log(i)
+      // console.log(i)
 
       if(i >= yearsUntilRetirement) {
 
         annualPremium = annualPremium + (annualPremium * (this.IULRateOfReturnDuringRetirement / 100));
-        console.log(annualPremium);
+        // console.log(annualPremium);
         fee = annualPremium * (annualPercentFee / 100);
 
-        console.log(fee)
+        // console.log(fee)
         annualPremium = annualPremium - (fee);
         annualPremium = annualPremium - (loanFee);
-        console.log(annualPremium);
-        console.log('in the if statement')
+        // console.log(annualPremium);
+        // console.log('in the if statement')
 
         totalFees = totalFees + fee;
       }
@@ -276,7 +371,7 @@ export class FeesComponent implements OnInit{
 
 
 
-      console.log(annualPremium)
+      // console.log(annualPremium)
       this.UIIULAnnualFees = annualFlatFee;
 
 
