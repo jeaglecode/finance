@@ -7,6 +7,7 @@ import { TaxesComponent} from "./taxes/taxes.component";
 import { FeesComponent } from "./fees/fees.component";
 import { CustomRouteReuseStrategy } from "./shared/custom-reuse-strategy";
 import { ErrorComponent } from './error/error.component';
+import { ChartsComponent } from "./charts/charts.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'profiles', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'retirement-income', component: RetirementincomeComponent},
   { path: 'taxes', component: TaxesComponent },
   { path: 'fees', component: FeesComponent },
+  { path: 'charts', component: ChartsComponent },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: 'profiles' }
 ];

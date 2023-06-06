@@ -17,7 +17,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
-import { ErrorComponent } from './error/error.component'
+import { ErrorComponent } from './error/error.component';
+import { ChartsComponent } from './charts/charts.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ErrorComponent } from './error/error.component'
     TaxesComponent,
     RetirementincomeComponent,
     FeesComponent,
-    ErrorComponent
+    ErrorComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
