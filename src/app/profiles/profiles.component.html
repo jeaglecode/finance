@@ -93,8 +93,8 @@
 
           <div class="col-4">
             <div class="form-group">
-              <label for="feesIULPercent">IUL (%):</label>
-              <input type="number" class="form-control purpleOutline" id="feesIULPercent" name="feesIULPercent" [(ngModel)]="fetchedUsers.feesIULPercent" step=".01">
+              <label for="feesIULPercent">IUL retired flat fee:</label>
+              <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="feesIULPercent" name="feesIULPercent" [(ngModel)]="fetchedUsers.feesIULPercent" step=".01">
             </div>
           </div>
 

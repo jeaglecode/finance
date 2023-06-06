@@ -333,7 +333,7 @@ ageClicked(event: Event) {
     let yearsUntilRetirement = this.retirementAge - this.currentAge;
     let annualPremium = 0;
     let annualFlatFee = this.IULFlatFee;
-    let annualPercentFee = this.IULFeesIULPercent;
+    let annualPercentFeeChangedNameOfField = this.IULFeesIULPercent;   //this fees percent no longer is correctly names went to perfect to flat
     let fee;
     let totalFees = 0;
     let loanFee = (this.profileData.loanPercentForIUL / 100) * this.profileData.annualSpendableIncome;
@@ -348,15 +348,16 @@ ageClicked(event: Event) {
 
         annualPremium = annualPremium + (annualPremium * (this.IULRateOfReturnDuringRetirement / 100));
         // console.log(annualPremium);
-        fee = annualPremium * (annualPercentFee / 100);
+        // fee = annualPremium * (annualPercentFee / 100);
 
         // console.log(fee)
-        annualPremium = annualPremium - (fee);
+        annualPremium = annualPremium - (annualPercentFeeChangedNameOfField);
         annualPremium = annualPremium - (loanFee);
         // console.log(annualPremium);
         // console.log('in the if statement')
 
-        totalFees = totalFees + fee;
+        totalFees = totalFees + annualPercentFeeChangedNameOfField;
+        annualFlatFee = annualPercentFeeChangedNameOfField;
       }
 
       else {
@@ -366,6 +367,7 @@ ageClicked(event: Event) {
 
         annualPremium = annualPremium + this.IULAnnualPremium;
         totalFees = totalFees + annualFlatFee;
+        annualFlatFee = this.IULFlatFee;
 
       }
 
