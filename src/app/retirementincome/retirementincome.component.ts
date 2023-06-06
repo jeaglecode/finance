@@ -148,7 +148,7 @@ export class RetirementincomeComponent {
 
     let yearsIntoRetirement = this.IULSetAge - this.retirementAge;
     let rateOfReturn = this.IULNewRateOfReturnAfterRetirement / 100;
-    let IULPercentFees = this.profileData.feesIULPercent / 100; //1 percent
+    let IULPercentFees = this.profileData.feesIULPercent; //1 percent this was change to flat fee and didn't change the name
     let IULLoanPercent = this.profileData.loanPercentForIUL / 100; //2 percent
     let IULLoanFee = 0;
     let yearsUntilUntilAccountDepleted = 0;
@@ -163,7 +163,7 @@ export class RetirementincomeComponent {
       yearsUntilUntilAccountDepleted = yearsUntilUntilAccountDepleted + 1;
       accountValue += accountValue * rateOfReturn;
       console.log(accountValue);
-      accountValue -= accountValue * IULPercentFees;
+      accountValue = accountValue - IULPercentFees;
       console.log(accountValue);
       IULLoanFee = (staticAnnualSpend * (i + 1)) * IULLoanPercent;
       console.log(IULLoanFee);
@@ -206,25 +206,6 @@ export class RetirementincomeComponent {
       this.IULTotalSpendableIncome = yearIntoRetirement * this.profileData.annualSpendableIncome;
      }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   typicalAgeSelector() {
     console.log("vaule changes")
@@ -359,7 +340,6 @@ export class RetirementincomeComponent {
       // this.selectorTypical = true;
       this.IULAgeSelectorField();
 
-
     }
 
 
@@ -373,11 +353,6 @@ export class RetirementincomeComponent {
       this.typicalAgeSelector();
     }
 
-
-
   }
-
-
-
 
 }
