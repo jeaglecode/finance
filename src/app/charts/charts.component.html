@@ -1,0 +1,146 @@
+<div class="container viewport">
+  <div class="banner">
+    <div class="rotated-text">S&P Comparison</div>
+  </div>
+
+  <div class="row p-2">
+    <div class="col-md-2 offset-2 text-center fw-bold">
+      <span>Time Period</span>
+    </div>
+
+    <div class="col-md-2 offset-1 text-center fw-bold">
+      <span>Start Amount</span>
+    </div>
+
+
+    <div class="col-md-2 offset-1 text-center fw-bold">
+      <span>Variable</span>
+    </div>
+<!--    <div class="col-md-1  text-center fw-bold">-->
+<!--      <button class="btn btn-primary purpleOutlineRounded" (click)="updateChart()"></button>-->
+<!--    </div>-->
+
+  </div>
+
+
+  <div class="row">
+<div class="col-md-2 offset-1 " >
+  <div class="form-group text-center">
+    <label for="startPeriod">Start Period:</label>
+    <input type="number" class="form-control purpleOutline" id="startPeriod" name="startPeriod" autocomplete="off"
+           (change)="checkForStartPeriod()" [(ngModel)]="startPeriod" [min]="startMinYearControl" [max]="startMaxYearControl">
+  </div>
+
+</div>
+
+    <div class="col-md-2">
+      <div class="form-group text-center">
+        <label for="endPeriod">End Period:</label>
+        <input type="number" class="form-control purpleOutline" id="endPeriod" name="profileName" autocomplete="off"
+               (change)="checkForEndPeriod()" [(ngModel)]="endPeriod" [min]="endMinYearControl" [max]="endMaxYearControl">
+      </div>
+    </div>
+
+    <div class="col-md-2 ">
+      <div class="form-group text-center">
+        <label for="startAmount"></label>
+        <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="startAmount" name="profileName" autocomplete="off"
+                (change)="checkForStartAmount()" [(ngModel)]="startAmount" (ngModelChange)="startAmountChange()">
+      </div>
+    </div>
+
+
+
+    <div class="col-md-2 ">
+      <div class="form-group text-center">
+        <label for="investorReturn">Investor Return(%):</label>
+        <input type="number" class="form-control purpleOutline" id="investorReturn" name="profileName" autocomplete="off"
+               [(ngModel)]="investorInterestRate" [min]="investorInterestRateMin" [max]="investorInterestRateMax" (change)="investorInterestRateChange()">
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group text-center">
+        <label for="SPCap">Index Cap(%):</label>
+        <input type="number" class="form-control purpleOutline" id="SPCap" name="profileName" autocomplete="off"
+               [(ngModel)]="SPCap" (change)="indexCapChange()">
+      </div>
+    </div>
+
+  </div>
+
+
+    <div class="row container p-5">
+
+
+
+      <table class="table table-bordered custom-table">
+        <colgroup>
+          <col style="width: 25%">
+          <col style="width: 18.75%">
+          <col style="width: 18.75%">
+          <col style="width: 18.75%">
+        </colgroup>
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Ending Amount</th>
+          <th scope="col">Average Rate of Return</th>
+          <th scope="col">Actual Growth Rate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">S&P</th>
+          <td>${{SP500AccountBalanceEnd | number: '1.0-0'}}</td>
+          <td>{{SP500AverageRateOfReturn  / 100 | percent:'1.2-2'}}</td>
+          <td>{{SP500ActualGrowthRate | percent:'1.2-2'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Index 0% Floor {{SPCap}}% Cap</th>
+          <td>${{cappedSP500ReturnEnd | number: '1.0-0'}}</td>
+          <td>{{cappedSP500AverageRateOfReturn  / 100 | percent:'1.2-2'}}</td>
+          <td>{{cappedSP500ActualGrowthRate | percent:'1.2-2'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Investor Return</th>
+          <td>${{investorEndingAmount | number: '1.0-0'}}</td>
+          <td>{{investorInterestRate  / 100 | percent:'1.2-2'}}</td>
+          <td>{{investorInterestRate  / 100 | percent:'1.2-2' }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  [(ngModel)]="fetchedUsers.profileName"-->
+<!--  <button (click)="test()">test</button>-->
+
+</div>
+
+
+<div class="container viewport2">
+
+
+  <canvas id="lineChart" class="p-1 mt-4"></canvas>
+
+</div>
+
+

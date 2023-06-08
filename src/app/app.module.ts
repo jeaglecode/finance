@@ -17,7 +17,9 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
-import { ErrorComponent } from './error/error.component'
+import { ErrorComponent } from './error/error.component';
+import { ChartsComponent } from './charts/charts.component'
+import { SP500DATAService } from "./services/sp500-data.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ErrorComponent } from './error/error.component'
     TaxesComponent,
     RetirementincomeComponent,
     FeesComponent,
-    ErrorComponent
+    ErrorComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { ErrorComponent } from './error/error.component'
     AuthModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [UserService],
+  providers: [UserService, SP500DATAService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
