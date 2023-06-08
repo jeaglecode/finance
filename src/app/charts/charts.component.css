@@ -1,3 +1,25 @@
+.container{
+
+  background-color: rgba(0,0,0,0.85) !important;
+  border-radius: 30px;
+
+}
+
+.viewport{
+  /*width: 100vw;*/
+  /*height: 40vh;*/
+}
+
+canvas#lineChart {
+  width: 100%; /* Set the canvas width to 100% of its container */
+  height: 50%; /* Set the canvas height to 100% of its container */
+}
+
+.viewport2 {
+
+  width: 100vw;
+  height: 50vh;
+}
 .banner {
   position: fixed;
   top: 0;
@@ -26,4 +48,28 @@
   .rotated-text {
     display: none;
   }
+}
+
+.purpleOutline {
+  border: 1px solid mediumpurple;
+  /*border-radius: 20px;*/
+  background-color: rgb(27,27,27);
+  color: white;
+}
+
+.purpleOutlineRounded {
+  border: 1px solid mediumpurple;
+  border-radius: 15px;
+  background-color: mediumpurple;
+  color: white;
+}
+
+.custom-table {
+  border-color: mediumpurple;
+}
+
+.custom-table th,
+.custom-table td {
+  color: white;
+  text-align: center;
 }
