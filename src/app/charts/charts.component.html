@@ -74,7 +74,7 @@
 
 
 
-      <table class="table table-bordered custom-table">
+      <table class="table table-bordered ">
         <colgroup>
           <col style="width: 25%">
           <col style="width: 18.75%">
@@ -82,28 +82,28 @@
           <col style="width: 18.75%">
         </colgroup>
         <thead>
-        <tr>
-          <th scope="col"></th>
+        <tr  class="custom-table">
+          <th scope="col">Investment Vehicle</th>
           <th scope="col">Ending Amount</th>
           <th scope="col">Average Rate of Return</th>
           <th scope="col">Actual Growth Rate</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th scope="row">S&P</th>
+        <tr class="custom-table">
+          <th scope="row" class="redText">S&P</th>
           <td>${{SP500AccountBalanceEnd | number: '1.0-0'}}</td>
           <td>{{SP500AverageRateOfReturn  / 100 | percent:'1.2-2'}}</td>
           <td>{{SP500ActualGrowthRate | percent:'1.2-2'}}</td>
         </tr>
-        <tr>
-          <th scope="row">Index 0% Floor {{SPCap}}% Cap</th>
+        <tr class="custom-table">
+          <th scope="row" class="greenText">Index 0% Floor {{SPCap}}% Cap</th>
           <td>${{cappedSP500ReturnEnd | number: '1.0-0'}}</td>
           <td>{{cappedSP500AverageRateOfReturn  / 100 | percent:'1.2-2'}}</td>
           <td>{{cappedSP500ActualGrowthRate | percent:'1.2-2'}}</td>
         </tr>
-        <tr>
-          <th scope="row">Investor Return</th>
+        <tr  class="custom-table">
+          <th scope="row" class="purpleText">Investor Return</th>
           <td>${{investorEndingAmount | number: '1.0-0'}}</td>
           <td>{{investorInterestRate  / 100 | percent:'1.2-2'}}</td>
           <td>{{investorInterestRate  / 100 | percent:'1.2-2' }}</td>
