@@ -79,6 +79,15 @@ canvas#lineChart {
   color: red;
 }
 
+.grayText {
+  color: rgb(255,255,255,0.3);
+  font-style: italic ;
+}
+.whiteText {
+  color: white;
+}
+
+
 .greenText {
   color: limegreen;
 }
@@ -87,4 +96,11 @@ canvas#lineChart {
   color: mediumpurple;
 }
 
+.scrollbar-adjust{
+  padding-left: 1.5em;
+}
+
+.scrollbar-adjust-left{
+  padding-right: 1.25em;
+}
 
