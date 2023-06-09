@@ -58,6 +58,11 @@ export class ChartsComponent implements OnInit {
   spLabelFloorLabel = 'Index 0% Floor ' + this.SPCap + '% Cap';
   investorReturnLabel = 'Investor Return';
 
+  SPBool = true;
+  indexBool = false;
+  investorBool = false;
+
+
   constructor(private sp500dataService: SP500DATAService) {
   }
 
@@ -319,12 +324,15 @@ export class ChartsComponent implements OnInit {
             }
           },
           legend: {
+
             labels: {
               color: 'white',
               font: {size: 14}
-
             },
-
+            onClick: (event, legendItem) => {
+              const label = legendItem.text;
+              this.handleDatasetLabelClick(label);
+            },
           }
         },
 
@@ -355,6 +363,9 @@ export class ChartsComponent implements OnInit {
       }
     });
   }
+
+
+
 
   updateChart() {
 
@@ -441,13 +452,28 @@ export class ChartsComponent implements OnInit {
 
   }
 
+ handleDatasetLabelClick(label: string) {
+
+    console.log(label)
+   // Toggle the hidden property of the corresponding dataset based on the clicked label
+   if (label === this.spLabel) {
+     this.lineChart.data.datasets[0].hidden = !this.lineChart.data.datasets[0].hidden;
+     this.SPBool = !this.SPBool;
+   } else if (label === this.spLabelFloorLabel) {
+     this.lineChart.data.datasets[1].hidden = !this.lineChart.data.datasets[1].hidden;
+     this.indexBool = !this.indexBool;
+   } else if (label === this.investorReturnLabel) {
+     this.lineChart.data.datasets[2].hidden = !this.lineChart.data.datasets[2].hidden;
+     this.investorBool = !this.investorBool;
+   }
+
+
+   // Update the chart to reflect the changes
+   this.lineChart.update();
+
+ }
+
 
 }
 
-// saleData = [
-//   { name: "Mobiles", value: 105000 },
-//   { name: "Laptop", value: 55000 },
-//   { name: "AC", value: 15000 },
-//   { name: "Headset", value: 150000 },
-//   { name: "Fridge", value: 20000 }
-// ];
+

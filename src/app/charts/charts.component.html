@@ -27,7 +27,7 @@
 <div class="col-md-2 offset-1 " >
   <div class="form-group text-center">
     <label for="startPeriod">Start Period:</label>
-    <input type="number" class="form-control purpleOutline" id="startPeriod" name="startPeriod" autocomplete="off"
+    <input type="number" class="form-control purpleOutline text-center scrollbar-adjust" id="startPeriod" name="startPeriod" autocomplete="off"
            (change)="checkForStartPeriod()" [(ngModel)]="startPeriod" [min]="startMinYearControl" [max]="startMaxYearControl">
   </div>
 
@@ -36,7 +36,7 @@
     <div class="col-md-2">
       <div class="form-group text-center">
         <label for="endPeriod">End Period:</label>
-        <input type="number" class="form-control purpleOutline" id="endPeriod" name="profileName" autocomplete="off"
+        <input type="number" class="form-control purpleOutline text-center scrollbar-adjust" id="endPeriod" name="profileName" autocomplete="off"
                (change)="checkForEndPeriod()" [(ngModel)]="endPeriod" [min]="endMinYearControl" [max]="endMaxYearControl">
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="col-md-2 ">
       <div class="form-group text-center">
         <label for="startAmount"></label>
-        <input currencyMask [options]="{ align: 'left', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline" id="startAmount" name="profileName" autocomplete="off"
+        <input currencyMask [options]="{ align: 'center', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline scrollbar-adjust-left" id="startAmount" name="profileName" autocomplete="off"
                 (change)="checkForStartAmount()" [(ngModel)]="startAmount" (ngModelChange)="startAmountChange()">
       </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="col-md-2 ">
       <div class="form-group text-center">
         <label for="investorReturn">Investor Return(%):</label>
-        <input type="number" class="form-control purpleOutline" id="investorReturn" name="profileName" autocomplete="off"
+        <input type="number" class="form-control purpleOutline text-center scrollbar-adjust" id="investorReturn" name="profileName" autocomplete="off"
                [(ngModel)]="investorInterestRate" [min]="investorInterestRateMin" [max]="investorInterestRateMax" (change)="investorInterestRateChange()">
       </div>
     </div>
@@ -62,7 +62,7 @@
     <div class="col-md-2">
       <div class="form-group text-center">
         <label for="SPCap">Index Cap(%):</label>
-        <input type="number" class="form-control purpleOutline" id="SPCap" name="profileName" autocomplete="off"
+        <input type="number" class="form-control purpleOutline text-center scrollbar-adjust" id="SPCap" name="profileName" autocomplete="off"
                [(ngModel)]="SPCap" (change)="indexCapChange()">
       </div>
     </div>
@@ -91,22 +91,22 @@
         </thead>
         <tbody>
         <tr class="custom-table">
-          <th scope="row" class="redText">S&P</th>
-          <td>${{SP500AccountBalanceEnd | number: '1.0-0'}}</td>
-          <td>{{SP500AverageRateOfReturn  / 100 | percent:'1.2-2'}}</td>
-          <td>{{SP500ActualGrowthRate | percent:'1.2-2'}}</td>
+          <th scope="row" class="{{ SPBool ? 'redText' : 'grayText' }}">S&P</th>
+          <td class="{{ SPBool ? 'whiteText' : 'grayText' }}">${{ SP500AccountBalanceEnd | number: '1.0-0' }}</td>
+          <td class="{{ SPBool ? 'whiteText' : 'grayText' }}">{{ SP500AverageRateOfReturn / 100 | percent:'1.2-2' }}</td>
+          <td class="{{ SPBool ? 'whiteText' : 'grayText' }}">{{ SP500ActualGrowthRate | percent:'1.2-2' }}</td>
         </tr>
         <tr class="custom-table">
-          <th scope="row" class="greenText">Index 0% Floor {{SPCap}}% Cap</th>
-          <td>${{cappedSP500ReturnEnd | number: '1.0-0'}}</td>
-          <td>{{cappedSP500AverageRateOfReturn  / 100 | percent:'1.2-2'}}</td>
-          <td>{{cappedSP500ActualGrowthRate | percent:'1.2-2'}}</td>
+          <th scope="row" class="{{ indexBool ? 'greenText' : 'grayText' }}">Index 0% Floor {{SPCap}}% Cap</th>
+          <td class="{{ indexBool ? 'whiteText' : 'grayText' }}">${{cappedSP500ReturnEnd | number: '1.0-0'}}</td>
+          <td class="{{ indexBool ? 'whiteText' : 'grayText' }}">{{cappedSP500AverageRateOfReturn  / 100 | percent:'1.2-2'}}</td>
+          <td class="{{ indexBool ? 'whiteText' : 'grayText' }}">{{cappedSP500ActualGrowthRate | percent:'1.2-2'}}</td>
         </tr>
         <tr  class="custom-table">
-          <th scope="row" class="purpleText">Investor Return</th>
-          <td>${{investorEndingAmount | number: '1.0-0'}}</td>
-          <td>{{investorInterestRate  / 100 | percent:'1.2-2'}}</td>
-          <td>{{investorInterestRate  / 100 | percent:'1.2-2' }}</td>
+          <th scope="row" class="{{ investorBool ? 'purpleText' : 'grayText' }}">Investor Return</th>
+          <td class="{{ investorBool ? 'whiteText' : 'grayText' }}">${{investorEndingAmount | number: '1.0-0'}}</td>
+          <td class="{{ investorBool ? 'whiteText' : 'grayText' }}">{{investorInterestRate  / 100 | percent:'1.2-2'}}</td>
+          <td class="{{ investorBool ? 'whiteText' : 'grayText' }}">{{investorInterestRate  / 100 | percent:'1.2-2' }}</td>
         </tr>
         </tbody>
       </table>
