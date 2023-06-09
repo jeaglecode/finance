@@ -273,7 +273,8 @@ export class ChartsComponent implements OnInit {
           },
           {
             label: this.spLabelFloorLabel ,
-            data: this.cappedSP500Return, // Replace with your own data for the second line
+            data: this.cappedSP500Return,
+            hidden: true,
             borderColor: 'limegreen',
             fill: false,
             cubicInterpolationMode: 'monotone',
@@ -283,7 +284,8 @@ export class ChartsComponent implements OnInit {
           },
           {
             label: this.investorReturnLabel,
-            data: this.investorReturns, // Replace with your own data for the second line
+            data: this.investorReturns,
+            hidden: true,
             borderColor: 'mediumpurple',
             fill: false,
             cubicInterpolationMode: 'monotone',
