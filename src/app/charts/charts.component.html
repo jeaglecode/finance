@@ -45,7 +45,7 @@
       <div class="form-group text-center">
         <label for="startAmount"></label>
         <input currencyMask [options]="{ align: 'center', prefix: '$', thousands: ',', decimal: '.',precision:'0'}" class="form-control purpleOutline scrollbar-adjust-left" id="startAmount" name="profileName" autocomplete="off"
-                (change)="checkForStartAmount()" [(ngModel)]="startAmount" (ngModelChange)="startAmountChange()">
+                (change)="checkForStartAmount()" [(ngModel)]="startAmount" (blur)="startAmountChange()">
       </div>
     </div>
 
