@@ -31,10 +31,10 @@
           <div class="card-body col-4">${{profileData.currentAccountBalance}}</div>
 
           <div class="card-body col-8">Annual Rate of Return:</div>
-          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears) / 100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.rateOfReturnDuringWorkingYears) / 100 | percent: '1.2-2'}}</div>
 
           <div class="card-body col-8">%Fees:</div>
-          <div class="card-body col-4">{{(profileData.percentFees) / 100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.percentFees) / 100 | percent: '1.2-2'}}</div>
 
           <div class="card-body col-8">Employer Match:</div>
           <div class="card-body col-4">${{profileData.employerMatch}}</div>
@@ -74,7 +74,7 @@
           <div class="card-body col-4">${{profileData.lumpSum}}</div>
 
           <div class="card-body col-8">Annual Rate of Return:</div>
-          <div class="card-body col-4">{{(profileData.rateOfReturn) / 100 | percent}}</div>
+          <div class="card-body col-4">{{(profileData.rateOfReturn) / 100 | percent: '1.2-2'}}</div>
 
           <div class="card-body col-8">%Fees:</div>
           <div class="card-body col-4">Included</div>
