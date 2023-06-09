@@ -25,7 +25,7 @@
           <div class="card-body col-4">${{typicalAnnualDrawFromAccount | number: '1.0-0'}}</div>
 
           <div class="card-body col-8">Rate of Return (During Retirement):</div>
-          <div class="card-body col-4">{{(typicalRateOfReturnDuringRetirement) / 100 | percent}}</div>
+          <div class="card-body col-4">{{(typicalRateOfReturnDuringRetirement) / 100 | percent: '1.2-2'}}</div>
           <hr>
           <div class="card-body col-8">Total Contributions to Account:</div>
           <div class="card-body col-4">${{typicalTotalContribution | number: '1.0-0'}}</div>
@@ -75,7 +75,7 @@
           <div class="card-body col-4">${{IULAnnualDrawAgainstAccount | number: '1.0-0'}}</div>
 
           <div class="card-body col-8">Rate of Return (During Retirement):</div>
-          <div class="card-body col-4">{{(IULNewRateOfReturnAfterRetirement) / 100 | percent}}</div>
+          <div class="card-body col-4">{{(IULNewRateOfReturnAfterRetirement) / 100 | percent: '1.2-2'}}</div>
 <!--          <hr class="cardCustomMargin">-->
           <hr>
           <div class="card-body col-8">Total Premium Paid:</div>
