@@ -21,7 +21,7 @@ export class ChartsComponent implements OnInit {
   endMaxYearControl = 0;
 
   investorReturns: any[] = [];
-  investorInterestRate = 3.88;
+  investorInterestRate = 4.26;
   investorInterestRateMax = 1000;
   investorInterestRateMin = -1000;
   investorEndingAmount = 0
@@ -46,7 +46,7 @@ export class ChartsComponent implements OnInit {
   endYear = 0;
 
   startPeriod = 2000;
-  endPeriod = 2010;
+  endPeriod = 2023;
   startAmount = 100000;
 
   lineChart!: Chart;
