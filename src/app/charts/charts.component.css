@@ -68,8 +68,23 @@ canvas#lineChart {
   border-color: mediumpurple;
 }
 
-.custom-table th,
-.custom-table td {
+
+.custom-table {
   color: white;
   text-align: center;
 }
+
+
+.redText {
+  color: red;
+}
+
+.greenText {
+  color: limegreen;
+}
+
+.purpleText {
+  color: mediumpurple;
+}
+
+
