@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   // private url = 'https://sore-pike-overshirt.cyclic.app/users';
-  // private url = 'http://localhost:3000/users';
-  private url = 'https://congruous-literate-branch.glitch.me/users';
+  private url = 'http://localhost:3000/users';
+  // private url = 'https://congruous-literate-branch.glitch.me/users';
 
   private user: any;
 
