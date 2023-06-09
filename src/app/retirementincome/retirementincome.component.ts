@@ -92,6 +92,7 @@ export class RetirementincomeComponent {
       this.IULTotalPremiumPaid = this.profileData.annualPremium;
       this.IULAnnualSpendableIncome = this.profileData.annualSpendableIncome;
       this.IULMinAge = this.retirementAge;
+      this.IULContributions();
 
       this.calculateIUL();
       // this.calculateIULAccountValue()//
@@ -283,6 +284,14 @@ export class RetirementincomeComponent {
     }
     return this.typicalMaxAge;
   }
+
+
+  IULContributions() {
+
+    this.IULTotalPremiumPaid  = this.profileData.annualPremium * this.yearsToRetirement;
+
+  }
+
 
   calculateTypicalAccountValue() {
     let accountValue = this.calculateTypical();
