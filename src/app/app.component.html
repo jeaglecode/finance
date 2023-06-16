@@ -1,18 +1,5 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="navbarService.showNavbar | async"></app-navbar>
 
 <router-outlet></router-outlet>
 
 
-
-<!--<div class="container">-->
-<!--  <h1 class="text-center m-4 pb-4">Typical Plan vs IUL Plan Comparison</h1>-->
-<!--  <div class="row">-->
-<!--    <div class="col">-->
-<!--      <h2 class="purple">Typical Plan</h2>-->
-<!--      <app-k401-calculator></app-k401-calculator>-->
-<!--    </div>-->
-<!--    <div class="col"><h2 class="purple">IUL Plan</h2>-->
-<!--      <app-iul-calculator></app-iul-calculator>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

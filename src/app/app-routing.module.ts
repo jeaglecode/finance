@@ -8,9 +8,11 @@ import { FeesComponent } from "./fees/fees.component";
 import { CustomRouteReuseStrategy } from "./shared/custom-reuse-strategy";
 import { ErrorComponent } from './error/error.component';
 import { ChartsComponent } from "./charts/charts.component";
+import { HomepageComponent } from "./homepage/homepage.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'profiles', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component:  HomepageComponent},
   { path: 'profiles', component:  ProfilesComponent},
   { path: 'account-value', component: K401CalculatorComponent},
   { path: 'retirement-income', component: RetirementincomeComponent},

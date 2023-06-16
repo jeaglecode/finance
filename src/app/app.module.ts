@@ -20,6 +20,7 @@ import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './error/error.component';
 import { ChartsComponent } from './charts/charts.component'
 import { SP500DATAService } from "./services/sp500-data.service";
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SP500DATAService } from "./services/sp500-data.service";
     RetirementincomeComponent,
     FeesComponent,
     ErrorComponent,
-    ChartsComponent
+    ChartsComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

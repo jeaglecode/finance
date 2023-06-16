@@ -11,3 +11,8 @@ body {
 
 }
 
+.my-class {
+
+  background-image: url("assets/home-page-background.jpg");
+  background-color: black;
+}
