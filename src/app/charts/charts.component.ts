@@ -46,7 +46,7 @@ export class ChartsComponent implements OnInit {
   endYear = 0;
 
   startPeriod = 2000;
-  endPeriod = 2023;
+  endPeriod = 2024;
   startAmount = 100000;
 
   lineChart!: Chart;
