@@ -27,7 +27,7 @@ export class K401CalculatorComponent implements OnInit{
       this.profileData = users;
       this.calculate401k();
       this.calculateIUL();
-      console.log(this.profileData);
+      console.log("profile Data", this.profileData);
     });
 
   }
@@ -47,7 +47,7 @@ export class K401CalculatorComponent implements OnInit{
 
   calculateIUL() {
     console.log('calculateIUL() called');
-    let balance = 0;
+    let balance = 0 + this.profileData.lumpSum;
     for (let i = 0; i < this.profileData.yearsIUL; i++) {
       balance *= (1 + this.profileData.rateOfReturn / 100);
       balance -= this.profileData.feesIUL;

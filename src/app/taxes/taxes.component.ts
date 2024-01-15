@@ -74,18 +74,19 @@ export class TaxesComponent implements OnInit{
       this.typicalCurrentAccountBalance = this.profileData.currentAccountBalance;
       this.typicalTaxRateBeforeRetirement = this.profileData.incomeTaxRateDuringWorkingYears;
 
+      this.typicalTotalRate = this.profileData.incomeTaxRateDuringRetirement;
       this.typicalPlanAnnualTaxesDeferredBeforeRetirement = this.calculateAnnualTaxesDeferred(this.typicalAnnualContribution,
         this.typicalTaxRateBeforeRetirement, this.currentAge, this.retirementAge);
       this.typicalTotalTaxesDeferredBeforeRetirement = this.typicalPlanAnnualTaxesDeferredBeforeRetirement;
       this.calculateTypicalAnnualSpendingGross();
       this.typicalAnnualSpendableIncomeNet = this.profileData.annualSpendableIncome;
       this.typicalTotalTaxesDeferredBeforeRetirement = this.typicalPlanAnnualTaxesDeferredBeforeRetirement;
-      this.typicalTotalRate = this.profileData.incomeTaxRateDuringRetirement;
       this.typicalAnnualIncomeTaxPaid = this.typicalAnnualSpendableIncomeGross - this.typicalAnnualSpendableIncomeNet;
       this.typicalTotalIncomeTaxPaid = 0;
       this.typicalSetAge = this.profileData.retirementAge;
       this.typicalMinAge = this.profileData.retirementAge;
       console.log(this.typicalMinAge)
+
 
       this.typicalMaxAge = this.checkTypicalMaxAge();
 
@@ -110,8 +111,13 @@ export class TaxesComponent implements OnInit{
     });
   }
 
-  calculateAnnualTaxesDeferred(typicalAnnualContribution: number, typicalTaxRateBeforeRetirement: number, currentAge: number, retirementAge: number) {
-     return typicalAnnualContribution * (typicalTaxRateBeforeRetirement/100) * (retirementAge - currentAge);
+  calculateAnnualTaxesDeferred(typicalAnnualContribution: number, typicalTaxRateBeforeRetirement: number, currentAge: number, retirementAge: number)
+
+  {
+    console.log(this.typicalTotalRate);
+     return typicalAnnualContribution * (typicalTaxRateBeforeRetirement/100) * (retirementAge - currentAge) + (this.typicalCurrentAccountBalance * (this.typicalTotalRate/100));
+
+
 }
   calculateTypicalAnnualSpendingGross(): void {
 
@@ -311,11 +317,14 @@ export class TaxesComponent implements OnInit{
 
   calculateTypical() {
     let balance = this.profileData.currentAccountBalance;
+    console.log(this.profileData.currentAccountBalance)
     for (let i = 0; i < this.profileData.yearsTypical; i++) {
+
       balance += this.profileData.contribution;
       balance *= (1 + this.profileData.rateOfReturnDuringWorkingYears / 100);
       balance *= (1 - this.profileData.percentFees / 100);
     }
+    console.log(balance)
     return this.typicalAccountValue = balance;
   }
 
