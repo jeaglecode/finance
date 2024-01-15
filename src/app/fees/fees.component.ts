@@ -148,7 +148,8 @@ export class FeesComponent implements OnInit{
 
   calculateUntilRetirement(iteration: number) {
     let yearsUntilRetirement = this.retirementAge - this.currentAge;
-    let annualContribution = 0;
+    let annualContribution = 0 + this.typicalCurrentAccountBalance;
+    console.log(annualContribution);
     let annualFees = 0;
     let totalFees = 0;
     // console.log(yearsUntilRetirement);
